@@ -1,0 +1,10 @@
+<input
+    type="text"
+    class="form-control"
+    #datePicker
+    bsDatepicker
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [bsValue]="lastDate"
+    (bsValueChange)="setDate($event)"
+    [bsConfig]="bsConfig()" />

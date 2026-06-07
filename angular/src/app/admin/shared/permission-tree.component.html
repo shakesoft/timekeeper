@@ -1,0 +1,45 @@
+<div class="my-5">
+    <input
+        type="text"
+        (input)="filterPermissions()"
+        [(ngModel)]="filter"
+        class="form-control"
+        placeholder="{{ 'SearchWithThreeDot' | localize }}" />
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-5">
+    <div>
+        <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary d-flex align-items-center"
+            (click)="toggleAllNodes()"
+            [title]="isTreeExpanded ? ('CollapseAll' | localize) : ('ExpandAll' | localize)"
+            pTooltip>
+            <i class="fa-solid" [ngClass]="{ 'fa-angles-up': isTreeExpanded, 'fa-angles-down': !isTreeExpanded }"></i>
+            <span class="ms-2 text-muted">
+                {{ isTreeExpanded ? ('CollapseAll' | localize) : ('ExpandAll' | localize) }}
+            </span>
+        </button>
+    </div>
+
+    <div class="form-check form-switch" [class.no-animation]="isProcessing" placement="top">
+        <label class="form-check-label" [tooltip]="tooltipText | localize">
+            <input
+                type="checkbox"
+                class="form-check-input"
+                [(ngModel)]="onlyShowGrantedPermissions"
+                (ngModelChange)="onOnlyShowGrantedPermissionsChange($event)" />
+            {{ onlyShowEnabledPermissionsLabel | localize }}
+        </label>
+    </div>
+</div>
+
+<p-tree
+    [value]="treeData"
+    [(selection)]="selectedPermissions"
+    selectionMode="checkbox"
+    (onNodeSelect)="nodeSelect($event)"
+    (onNodeUnselect)="onNodeUnselect($event)"
+    [propagateSelectionUp]="false"
+    [propagateSelectionDown]="!disableCascade()"
+    [filter]="false"></p-tree>

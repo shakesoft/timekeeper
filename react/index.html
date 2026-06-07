@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyCompanyName</title>
+
+    <script>
+      (function() {
+        window.__msalPopupCallback = false;
+        var search = window.location.search;
+        var hash   = window.location.hash;
+
+        function getParam(name) {
+          if (search.length > 1) { var v = new URLSearchParams(search).get(name); if (v !== null) return v; }
+          if (hash.length > 1)   { var v = new URLSearchParams(hash.substring(1)).get(name); if (v !== null) return v; }
+          return null;
+        }
+
+        var code  = getParam('code');
+        var error = getParam('error');
+        var state = getParam('state');
+
+        if (!code && !error) return;
+
+        if (state && state.indexOf('openIdConnect') >= 0) return;
+
+        window.__msalPopupCallback = true;
+      })();
+    </script>
+
+    <link rel="stylesheet" href="/assets/fonts/fonts-inter.css" />
+    <link
+      rel="stylesheet"
+      href="/metronic/common/fonts/keenthemes-icons/ki.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/metronic/vendors/global/vendors.bundle.css"
+    />
+    
+    <script>
+      (function() {
+        var themeName = localStorage.getItem('appTheme') || 'default';
+        var themeMap = {
+          'default': 'default',
+          'theme2': 'theme2',
+          'theme3': 'theme3',
+          'theme4': 'theme4',
+          'theme5': 'theme5',
+          'theme6': 'theme6',
+          'theme7': 'theme7',
+          'theme8': 'theme8',
+          'theme9': 'theme9',
+          'theme10': 'theme10',
+          'theme11': 'theme11',
+          'theme12': 'theme12',
+          'theme13': 'theme13'
+        };
+        
+        var theme = themeMap[themeName] || 'default';
+        
+        var styleLink = document.createElement('link');
+        styleLink.rel = 'stylesheet';
+        styleLink.href = '/metronic/themes/' + theme + '/css/style.bundle.css';
+        document.head.appendChild(styleLink);
+        
+        var pluginsLink = document.createElement('link');
+        pluginsLink.rel = 'stylesheet';
+        pluginsLink.href = '/metronic/themes/' + theme + '/plugins/global/plugins.bundle.css';
+        document.head.appendChild(pluginsLink);
+
+        var customizeHref = '/assets/common/styles/themes/' + theme + '/metronic-customize.css';
+        var customizeLink = document.createElement('link');
+        customizeLink.rel = 'stylesheet';
+        customizeLink.href = customizeHref;
+        customizeLink.dataset.ktCustomize = 'true';
+        document.head.appendChild(customizeLink);
+        
+        var globalCustomLink = document.createElement('link');
+        globalCustomLink.rel = 'stylesheet';
+        globalCustomLink.href = '/assets/common/styles/global-custom.css';
+        document.head.appendChild(globalCustomLink);
+      })();
+    </script>
+  </head>
+  <body>
+    <script>
+      window.abp = window.abp || {};
+      abp.localization = abp.localization || {};
+      abp.localization.defaultSourceName =
+        abp.localization.defaultSourceName || "CadentManagement";
+    </script>
+    <div id="root"></div>
+
+    <script src="/assets/abp-web-resources/abp.js"></script>
+    <script src="/assets/canvas-toBlob/canvas-toBlob.js"></script>
+
+    <script src="/metronic/vendors/global/vendors.bundle.js"></script>
+    <script src="/metronic/common/js/components/app.js"></script>
+    <script src="/metronic/common/js/components/util.js"></script>
+    <script>
+      (function() {
+        var themeName = localStorage.getItem('appTheme') || 'default';
+        var themeMap = {
+          'default': 'default',
+          'theme2': 'theme2',
+          'theme3': 'theme3',
+          'theme4': 'theme4',
+          'theme5': 'theme5',
+          'theme6': 'theme6',
+          'theme7': 'theme7',
+          'theme8': 'theme8',
+          'theme9': 'theme9',
+          'theme10': 'theme10',
+          'theme11': 'theme11',
+          'theme12': 'theme12',
+          'theme13': 'theme13'
+        };
+        
+        var theme = themeMap[themeName] || 'default';
+        
+        var pluginsScript = document.createElement('script');
+        pluginsScript.src = '/metronic/themes/' + theme + '/plugins/global/plugins.bundle.js';
+        document.currentScript.parentNode.appendChild(pluginsScript);
+      })();
+    </script>
+    <script src="/metronic/common/js/components/event-handler.js"></script>
+    <script src="/metronic/common/js/components/menu.js"></script>
+    <script src="/metronic/common/js/components/scrolltop.js"></script>
+    <script src="/metronic/common/js/components/toggle.js"></script>
+
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.Swal) {
+          const sweetAlertScript = document.createElement('script');
+          sweetAlertScript.src = '/assets/abp-web-resources/abp.sweet-alert.js';
+          sweetAlertScript.onload = function() {
+            const notifyScript = document.createElement('script');
+            notifyScript.src = '/assets/abp-web-resources/abp.notify.js';
+            document.head.appendChild(notifyScript);
+          };
+          document.head.appendChild(sweetAlertScript);
+        }
+      });
+    </script>
+  </body>
+</html>

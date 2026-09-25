@@ -31,7 +31,7 @@
     <PackageReference Include="NSubstitute" Version="5.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Abp.TestBase" Version="11.2.0" />
+    <PackageReference Include="Abp.TestBase" Version="11.3.2" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />

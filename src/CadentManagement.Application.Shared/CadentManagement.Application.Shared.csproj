@@ -5,7 +5,7 @@
     <RootNamespace>CadentManagement</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Abp.Web.Common" Version="11.2.0" />
+    <PackageReference Include="Abp.Web.Common" Version="11.3.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CadentManagement.Core.Shared\CadentManagement.Core.Shared.csproj" />

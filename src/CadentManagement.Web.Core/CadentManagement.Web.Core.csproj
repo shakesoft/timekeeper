@@ -19,20 +19,20 @@
     <ProjectReference Include="..\CadentManagement.EntityFrameworkCore\CadentManagement.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Abp.Mapperly" Version="11.2.0" />
-    <PackageReference Include="Abp.AspNetCore.SignalR" Version="11.2.0" />
-    <PackageReference Include="Abp.AspNetZeroCore.Web" Version="5.1.0" />
+    <PackageReference Include="Abp.Mapperly" Version="11.3.2" />
+    <PackageReference Include="Abp.AspNetCore.SignalR" Version="11.3.2" />
+    <PackageReference Include="Abp.AspNetZeroCore.Web" Version="6.1.0" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.8.23" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
     <PackageReference Include="Owl.reCAPTCHA" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Abp.AspNetCore" Version="11.2.0" />
-    <PackageReference Include="Abp.HangFire.AspNetCore" Version="11.2.0" />
-    <PackageReference Include="Abp.RedisCache" Version="11.2.0" />
-    <PackageReference Include="Abp.HtmlSanitizer" Version="11.2.0" />
+    <PackageReference Include="Abp.AspNetCore" Version="11.3.2" />
+    <PackageReference Include="Abp.HangFire.AspNetCore" Version="11.3.2" />
+    <PackageReference Include="Abp.RedisCache" Version="11.3.2" />
+    <PackageReference Include="Abp.HtmlSanitizer" Version="11.3.2" />
     <PackageReference Include="HtmlSanitizer" Version="9.0.892" />
-    <PackageReference Include="Abp.AspNetCore.OpenIddict" Version="11.2.0" />
+    <PackageReference Include="Abp.AspNetCore.OpenIddict" Version="11.3.2" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.7" />

@@ -28,18 +28,18 @@
     <PackageReference Include="QRCoder" Version="1.8.0" />
     <PackageReference Include="Stripe.net" Version="51.1.0" />
     <PackageReference Include="TimeZoneConverter" Version="7.2.0" />
-    <PackageReference Include="Abp.AspNetZeroCore" Version="5.1.0" />
+    <PackageReference Include="Abp.AspNetZeroCore" Version="6.1.0" />
     <PackageReference Include="SkiaSharp" Version="3.119.2" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.119.2" />
     <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="3.119.2" />
     <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="3.119.2" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Abp.ZeroCore.EntityFrameworkCore" Version="11.2.0" />
-    <PackageReference Include="Abp.Mapperly" Version="11.2.0" />
-    <PackageReference Include="Abp.MailKit" Version="11.2.0" />
-    <PackageReference Include="Abp.Zero.Ldap" Version="11.2.0" />
-    <PackageReference Include="Abp.ZeroCore.OpenIddict" Version="11.2.0" />
+    <PackageReference Include="Abp.ZeroCore.EntityFrameworkCore" Version="11.3.2" />
+    <PackageReference Include="Abp.Mapperly" Version="11.3.2" />
+    <PackageReference Include="Abp.MailKit" Version="11.3.2" />
+    <PackageReference Include="Abp.Zero.Ldap" Version="11.3.2" />
+    <PackageReference Include="Abp.ZeroCore.OpenIddict" Version="11.3.2" />
     <PackageReference Include="Twilio" Version="7.14.7" />
   </ItemGroup>
   <ItemGroup>

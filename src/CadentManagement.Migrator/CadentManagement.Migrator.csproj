@@ -22,7 +22,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Abp.Castle.Log4Net" Version="11.2.0" />
+    <PackageReference Include="Abp.Castle.Log4Net" Version="11.3.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CadentManagement.EntityFrameworkCore\CadentManagement.EntityFrameworkCore.csproj" />

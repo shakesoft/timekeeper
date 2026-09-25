@@ -7,7 +7,7 @@
     <PackageReference Include="IdentityModel" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Abp.Web.Common" Version="11.2.0" />
+    <PackageReference Include="Abp.Web.Common" Version="11.3.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\CadentManagement.Application.Shared\CadentManagement.Application.Shared.csproj" />

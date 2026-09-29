@@ -13,7 +13,6 @@ import { useLoginService } from "../login/login.service";
 import { useServiceProxy } from "@/api/service-proxy-factory";
 import L from "@/lib/L";
 import recaptcha from "@/lib/recaptcha-v3";
-import { getDate } from "@/pages/admin/components/common/timing/lib/datetime-helper";
 
 type ResetFormValues = {
   password: string;
@@ -107,15 +106,6 @@ const ResetPasswordPage: React.FC = () => {
         } else {
           input.userId = parseInt(userIdParam || "0", 10) || 0;
           input.resetCode = resetCodeParam || undefined;
-          input.expireDate = getDate();
-          const returnUrl =
-            new URLSearchParams(window.location.search).get("returnUrl") ||
-            undefined;
-          const singleSignIn =
-            new URLSearchParams(window.location.search).get("singleSignIn") ||
-            undefined;
-          input.returnUrl = returnUrl;
-          input.singleSignIn = singleSignIn;
         }
         input.password = model.password;
 

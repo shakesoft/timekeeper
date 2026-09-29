@@ -150,6 +150,13 @@ export const buildRawMenu = (): AppMenuItem[] => [
         ],
       },
       {
+        id: "RateLimiting",
+        title: L("RateLimiting"),
+        permissionName: "Pages.Administration.RateLimiting",
+        icon: "shield-tick",
+        route: "/app/admin/rate-limiting",
+      },
+      {
         id: "SettingsHost",
         title: L("Settings"),
         permissionName: "Pages.Administration.Host.Settings",

@@ -6215,6 +6215,292 @@ export class EntityChangeServiceProxy {
   }
 }
 
+export class ExternalLoginLinkServiceProxy {
+  protected instance: AxiosInstance;
+  protected baseUrl: string;
+  protected jsonParseReviver: ((key: string, value: any) => any) | undefined =
+    undefined;
+
+  constructor(baseUrl?: string, instance?: AxiosInstance) {
+    this.instance = instance || axios.create();
+
+    this.baseUrl = baseUrl ?? "";
+  }
+
+  /**
+   * @return OK
+   */
+  getExternalLogins(
+    cancelToken?: CancelToken,
+  ): Promise<ExternalLoginProviderDto[]> {
+    let url_ =
+      this.baseUrl + "/api/services/app/ExternalLoginLink/GetExternalLogins";
+    url_ = url_.replace(/[?&]$/, "");
+
+    let options_: AxiosRequestConfig = {
+      method: "GET",
+      url: url_,
+      headers: {
+        Accept: "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processGetExternalLogins(_response);
+      });
+  }
+
+  protected processGetExternalLogins(
+    response: AxiosResponse,
+  ): Promise<ExternalLoginProviderDto[]> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      let result200: any = null;
+      let resultData200 = _responseText;
+      if (Array.isArray(resultData200)) {
+        result200 = [] as any;
+        for (let item of resultData200)
+          result200!.push(ExternalLoginProviderDto.fromJS(item));
+      } else {
+        result200 = null as any;
+      }
+      return Promise.resolve<ExternalLoginProviderDto[]>(result200);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<ExternalLoginProviderDto[]>(null as any);
+  }
+
+  /**
+   * @param body (optional)
+   * @return OK
+   */
+  linkExternalLogin(
+    body?: LinkExternalLoginInput | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<LinkExternalLoginResult> {
+    let url_ =
+      this.baseUrl + "/api/services/app/ExternalLoginLink/LinkExternalLogin";
+    url_ = url_.replace(/[?&]$/, "");
+
+    const content_ = JSON.stringify(body);
+
+    let options_: AxiosRequestConfig = {
+      data: content_,
+      method: "POST",
+      url: url_,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processLinkExternalLogin(_response);
+      });
+  }
+
+  protected processLinkExternalLogin(
+    response: AxiosResponse,
+  ): Promise<LinkExternalLoginResult> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      let result200: any = null;
+      let resultData200 = _responseText;
+      result200 = LinkExternalLoginResult.fromJS(resultData200);
+      return Promise.resolve<LinkExternalLoginResult>(result200);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<LinkExternalLoginResult>(null as any);
+  }
+
+  /**
+   * @param body (optional)
+   * @return OK
+   */
+  unlinkExternalLogin(
+    body?: UnlinkExternalLoginInput | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<UnlinkExternalLoginResult> {
+    let url_ =
+      this.baseUrl + "/api/services/app/ExternalLoginLink/UnlinkExternalLogin";
+    url_ = url_.replace(/[?&]$/, "");
+
+    const content_ = JSON.stringify(body);
+
+    let options_: AxiosRequestConfig = {
+      data: content_,
+      method: "POST",
+      url: url_,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processUnlinkExternalLogin(_response);
+      });
+  }
+
+  protected processUnlinkExternalLogin(
+    response: AxiosResponse,
+  ): Promise<UnlinkExternalLoginResult> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      let result200: any = null;
+      let resultData200 = _responseText;
+      result200 = UnlinkExternalLoginResult.fromJS(resultData200);
+      return Promise.resolve<UnlinkExternalLoginResult>(result200);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<UnlinkExternalLoginResult>(null as any);
+  }
+
+  /**
+   * @param body (optional)
+   * @return OK
+   */
+  mergeAndLinkExternalLogin(
+    body?: MergeExternalLoginInput | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<void> {
+    let url_ =
+      this.baseUrl +
+      "/api/services/app/ExternalLoginLink/MergeAndLinkExternalLogin";
+    url_ = url_.replace(/[?&]$/, "");
+
+    const content_ = JSON.stringify(body);
+
+    let options_: AxiosRequestConfig = {
+      data: content_,
+      method: "POST",
+      url: url_,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processMergeAndLinkExternalLogin(_response);
+      });
+  }
+
+  protected processMergeAndLinkExternalLogin(
+    response: AxiosResponse,
+  ): Promise<void> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      return Promise.resolve<void>(null as any);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<void>(null as any);
+  }
+}
+
 export class FriendshipServiceProxy {
   protected instance: AxiosInstance;
   protected baseUrl: string;
@@ -12429,6 +12715,457 @@ export class ProfileServiceProxy {
   }
 
   protected processChangeLanguage(response: AxiosResponse): Promise<void> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      return Promise.resolve<void>(null as any);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<void>(null as any);
+  }
+}
+
+export class RateLimitPolicyServiceProxy {
+  protected instance: AxiosInstance;
+  protected baseUrl: string;
+  protected jsonParseReviver: ((key: string, value: any) => any) | undefined =
+    undefined;
+
+  constructor(baseUrl?: string, instance?: AxiosInstance) {
+    this.instance = instance || axios.create();
+
+    this.baseUrl = baseUrl ?? "";
+  }
+
+  /**
+   * @return OK
+   */
+  getIsEnabled(cancelToken?: CancelToken): Promise<boolean> {
+    let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/GetIsEnabled";
+    url_ = url_.replace(/[?&]$/, "");
+
+    let options_: AxiosRequestConfig = {
+      method: "GET",
+      url: url_,
+      headers: {
+        Accept: "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processGetIsEnabled(_response);
+      });
+  }
+
+  protected processGetIsEnabled(response: AxiosResponse): Promise<boolean> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      let result200: any = null;
+      let resultData200 = _responseText;
+      result200 = resultData200 !== undefined ? resultData200 : (null as any);
+
+      return Promise.resolve<boolean>(result200);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<boolean>(null as any);
+  }
+
+  /**
+   * @param isEnabled (optional)
+   * @return OK
+   */
+  setIsEnabled(
+    isEnabled?: boolean | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<void> {
+    let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/SetIsEnabled?";
+    if (isEnabled === null)
+      throw new globalThis.Error("The parameter 'isEnabled' cannot be null.");
+    else if (isEnabled !== undefined)
+      url_ += "isEnabled=" + encodeURIComponent("" + isEnabled) + "&";
+    url_ = url_.replace(/[?&]$/, "");
+
+    let options_: AxiosRequestConfig = {
+      method: "POST",
+      url: url_,
+      headers: {},
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processSetIsEnabled(_response);
+      });
+  }
+
+  protected processSetIsEnabled(response: AxiosResponse): Promise<void> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      return Promise.resolve<void>(null as any);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<void>(null as any);
+  }
+
+  /**
+   * @param body (optional)
+   * @return OK
+   */
+  getPolicies(
+    body?: GetRateLimitPoliciesInput | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<PagedResultDtoOfRateLimitPolicyDto> {
+    let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/GetPolicies";
+    url_ = url_.replace(/[?&]$/, "");
+
+    const content_ = JSON.stringify(body);
+
+    let options_: AxiosRequestConfig = {
+      data: content_,
+      method: "POST",
+      url: url_,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processGetPolicies(_response);
+      });
+  }
+
+  protected processGetPolicies(
+    response: AxiosResponse,
+  ): Promise<PagedResultDtoOfRateLimitPolicyDto> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      let result200: any = null;
+      let resultData200 = _responseText;
+      result200 = PagedResultDtoOfRateLimitPolicyDto.fromJS(resultData200);
+      return Promise.resolve<PagedResultDtoOfRateLimitPolicyDto>(result200);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<PagedResultDtoOfRateLimitPolicyDto>(null as any);
+  }
+
+  /**
+   * @param id (optional)
+   * @return OK
+   */
+  getPolicyForEdit(
+    id?: number | null | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<GetRateLimitPolicyForEditOutput> {
+    let url_ =
+      this.baseUrl + "/api/services/app/RateLimitPolicy/GetPolicyForEdit?";
+    if (id !== undefined && id !== null)
+      url_ += "Id=" + encodeURIComponent("" + id) + "&";
+    url_ = url_.replace(/[?&]$/, "");
+
+    let options_: AxiosRequestConfig = {
+      method: "GET",
+      url: url_,
+      headers: {
+        Accept: "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processGetPolicyForEdit(_response);
+      });
+  }
+
+  protected processGetPolicyForEdit(
+    response: AxiosResponse,
+  ): Promise<GetRateLimitPolicyForEditOutput> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      let result200: any = null;
+      let resultData200 = _responseText;
+      result200 = GetRateLimitPolicyForEditOutput.fromJS(resultData200);
+      return Promise.resolve<GetRateLimitPolicyForEditOutput>(result200);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<GetRateLimitPolicyForEditOutput>(null as any);
+  }
+
+  /**
+   * @param body (optional)
+   * @return OK
+   */
+  createOrEdit(
+    body?: CreateOrEditRateLimitPolicyDto | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<void> {
+    let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/CreateOrEdit";
+    url_ = url_.replace(/[?&]$/, "");
+
+    const content_ = JSON.stringify(body);
+
+    let options_: AxiosRequestConfig = {
+      data: content_,
+      method: "POST",
+      url: url_,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processCreateOrEdit(_response);
+      });
+  }
+
+  protected processCreateOrEdit(response: AxiosResponse): Promise<void> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      return Promise.resolve<void>(null as any);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<void>(null as any);
+  }
+
+  /**
+   * @param id (optional)
+   * @return OK
+   */
+  delete(id?: number | undefined, cancelToken?: CancelToken): Promise<void> {
+    let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/Delete?";
+    if (id === null)
+      throw new globalThis.Error("The parameter 'id' cannot be null.");
+    else if (id !== undefined)
+      url_ += "Id=" + encodeURIComponent("" + id) + "&";
+    url_ = url_.replace(/[?&]$/, "");
+
+    let options_: AxiosRequestConfig = {
+      method: "DELETE",
+      url: url_,
+      headers: {},
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processDelete(_response);
+      });
+  }
+
+  protected processDelete(response: AxiosResponse): Promise<void> {
+    const status = response.status;
+    let _headers: any = {};
+    if (response.headers && typeof response.headers === "object") {
+      for (const k in response.headers) {
+        if (response.headers.hasOwnProperty(k)) {
+          _headers[k] = response.headers[k];
+        }
+      }
+    }
+    if (status === 200) {
+      const _responseText = response.data;
+      return Promise.resolve<void>(null as any);
+    } else if (status !== 200 && status !== 204) {
+      const _responseText = response.data;
+      return throwException(
+        "An unexpected server error occurred.",
+        status,
+        _responseText,
+        _headers,
+      );
+    }
+    return Promise.resolve<void>(null as any);
+  }
+
+  /**
+   * @param body (optional)
+   * @return OK
+   */
+  togglePolicyEnabled(
+    body?: EntityDto | undefined,
+    cancelToken?: CancelToken,
+  ): Promise<void> {
+    let url_ =
+      this.baseUrl + "/api/services/app/RateLimitPolicy/TogglePolicyEnabled";
+    url_ = url_.replace(/[?&]$/, "");
+
+    const content_ = JSON.stringify(body);
+
+    let options_: AxiosRequestConfig = {
+      data: content_,
+      method: "POST",
+      url: url_,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cancelToken,
+    };
+
+    return this.instance
+      .request(options_)
+      .catch((_error: any) => {
+        if (isAxiosError(_error) && _error.response) {
+          return _error.response;
+        } else {
+          throw _error;
+        }
+      })
+      .then((_response: AxiosResponse) => {
+        return this.processTogglePolicyEnabled(_response);
+      });
+  }
+
+  protected processTogglePolicyEnabled(response: AxiosResponse): Promise<void> {
     const status = response.status;
     let _headers: any = {};
     if (response.headers && typeof response.headers === "object") {
@@ -21490,6 +22227,98 @@ export interface ICreateMassNotificationInput {
   targetNotifiers: string[] | undefined;
 }
 
+export class CreateOrEditRateLimitPolicyDto implements ICreateOrEditRateLimitPolicyDto {
+  id!: number | undefined;
+  name!: string;
+  isEnabled!: boolean;
+  algorithm!: RateLimitAlgorithm;
+  partitionType!: RateLimitPartitionType;
+  isGlobal!: boolean;
+  endpointPattern!: string | undefined;
+  permitLimit!: number;
+  windowInSeconds!: number;
+  queueLimit!: number;
+  segmentsPerWindow!: number;
+  tokensPerPeriod!: number;
+  replenishmentPeriodInSeconds!: number;
+  httpStatusCode!: number;
+  customMessage!: string | undefined;
+
+  constructor(data?: ICreateOrEditRateLimitPolicyDto) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.id = _data["id"];
+      this.name = _data["name"];
+      this.isEnabled = _data["isEnabled"];
+      this.algorithm = _data["algorithm"];
+      this.partitionType = _data["partitionType"];
+      this.isGlobal = _data["isGlobal"];
+      this.endpointPattern = _data["endpointPattern"];
+      this.permitLimit = _data["permitLimit"];
+      this.windowInSeconds = _data["windowInSeconds"];
+      this.queueLimit = _data["queueLimit"];
+      this.segmentsPerWindow = _data["segmentsPerWindow"];
+      this.tokensPerPeriod = _data["tokensPerPeriod"];
+      this.replenishmentPeriodInSeconds = _data["replenishmentPeriodInSeconds"];
+      this.httpStatusCode = _data["httpStatusCode"];
+      this.customMessage = _data["customMessage"];
+    }
+  }
+
+  static fromJS(data: any): CreateOrEditRateLimitPolicyDto {
+    data = typeof data === "object" ? data : {};
+    let result = new CreateOrEditRateLimitPolicyDto();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["id"] = this.id;
+    data["name"] = this.name;
+    data["isEnabled"] = this.isEnabled;
+    data["algorithm"] = this.algorithm;
+    data["partitionType"] = this.partitionType;
+    data["isGlobal"] = this.isGlobal;
+    data["endpointPattern"] = this.endpointPattern;
+    data["permitLimit"] = this.permitLimit;
+    data["windowInSeconds"] = this.windowInSeconds;
+    data["queueLimit"] = this.queueLimit;
+    data["segmentsPerWindow"] = this.segmentsPerWindow;
+    data["tokensPerPeriod"] = this.tokensPerPeriod;
+    data["replenishmentPeriodInSeconds"] = this.replenishmentPeriodInSeconds;
+    data["httpStatusCode"] = this.httpStatusCode;
+    data["customMessage"] = this.customMessage;
+    return data;
+  }
+}
+
+export interface ICreateOrEditRateLimitPolicyDto {
+  id: number | undefined;
+  name: string;
+  isEnabled: boolean;
+  algorithm: RateLimitAlgorithm;
+  partitionType: RateLimitPartitionType;
+  isGlobal: boolean;
+  endpointPattern: string | undefined;
+  permitLimit: number;
+  windowInSeconds: number;
+  queueLimit: number;
+  segmentsPerWindow: number;
+  tokensPerPeriod: number;
+  replenishmentPeriodInSeconds: number;
+  httpStatusCode: number;
+  customMessage: string | undefined;
+}
+
 export class CreateOrUpdateLanguageInput implements ICreateOrUpdateLanguageInput {
   language!: ApplicationLanguageEditDto;
 
@@ -23492,6 +24321,77 @@ export interface IExternalAuthenticateResultModel {
   returnUrl: string | undefined;
   refreshToken: string | undefined;
   refreshTokenExpireInSeconds: number;
+}
+
+export class ExternalLoginProviderDto implements IExternalLoginProviderDto {
+  name!: string | undefined;
+  clientId!: string | undefined;
+  isLinked!: boolean;
+  canUnlink!: boolean;
+  emailAddress!: string | undefined;
+  additionalParams!: { [key: string]: string } | undefined;
+
+  constructor(data?: IExternalLoginProviderDto) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.name = _data["name"];
+      this.clientId = _data["clientId"];
+      this.isLinked = _data["isLinked"];
+      this.canUnlink = _data["canUnlink"];
+      this.emailAddress = _data["emailAddress"];
+      if (_data["additionalParams"]) {
+        this.additionalParams = {} as any;
+        for (let key in _data["additionalParams"]) {
+          if (_data["additionalParams"].hasOwnProperty(key))
+            (this.additionalParams as any)![key] =
+              _data["additionalParams"][key];
+        }
+      }
+    }
+  }
+
+  static fromJS(data: any): ExternalLoginProviderDto {
+    data = typeof data === "object" ? data : {};
+    let result = new ExternalLoginProviderDto();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["name"] = this.name;
+    data["clientId"] = this.clientId;
+    data["isLinked"] = this.isLinked;
+    data["canUnlink"] = this.canUnlink;
+    data["emailAddress"] = this.emailAddress;
+    if (this.additionalParams) {
+      data["additionalParams"] = {};
+      for (let key in this.additionalParams) {
+        if (this.additionalParams.hasOwnProperty(key))
+          (data["additionalParams"] as any)[key] = (
+            this.additionalParams as any
+          )[key];
+      }
+    }
+    return data;
+  }
+}
+
+export interface IExternalLoginProviderDto {
+  name: string | undefined;
+  clientId: string | undefined;
+  isLinked: boolean;
+  canUnlink: boolean;
+  emailAddress: string | undefined;
+  additionalParams: { [key: string]: string } | undefined;
 }
 
 export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInfoModel {
@@ -25951,6 +26851,126 @@ export interface IGetPublishedNotificationsOutput {
   totalCount: number;
 }
 
+export class GetRateLimitPoliciesInput implements IGetRateLimitPoliciesInput {
+  maxResultCount!: number;
+  skipCount!: number;
+  sorting!: string | undefined;
+  filter!: string | undefined;
+  algorithm!: RateLimitAlgorithm;
+  isEnabled!: boolean | undefined;
+
+  constructor(data?: IGetRateLimitPoliciesInput) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.maxResultCount = _data["maxResultCount"];
+      this.skipCount = _data["skipCount"];
+      this.sorting = _data["sorting"];
+      this.filter = _data["filter"];
+      this.algorithm = _data["algorithm"];
+      this.isEnabled = _data["isEnabled"];
+    }
+  }
+
+  static fromJS(data: any): GetRateLimitPoliciesInput {
+    data = typeof data === "object" ? data : {};
+    let result = new GetRateLimitPoliciesInput();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["maxResultCount"] = this.maxResultCount;
+    data["skipCount"] = this.skipCount;
+    data["sorting"] = this.sorting;
+    data["filter"] = this.filter;
+    data["algorithm"] = this.algorithm;
+    data["isEnabled"] = this.isEnabled;
+    return data;
+  }
+}
+
+export interface IGetRateLimitPoliciesInput {
+  maxResultCount: number;
+  skipCount: number;
+  sorting: string | undefined;
+  filter: string | undefined;
+  algorithm: RateLimitAlgorithm;
+  isEnabled: boolean | undefined;
+}
+
+export class GetRateLimitPolicyForEditOutput implements IGetRateLimitPolicyForEditOutput {
+  rateLimitPolicy!: CreateOrEditRateLimitPolicyDto;
+  algorithms!: ComboboxItemDto[] | undefined;
+  partitionTypes!: ComboboxItemDto[] | undefined;
+
+  constructor(data?: IGetRateLimitPolicyForEditOutput) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.rateLimitPolicy = _data["rateLimitPolicy"]
+        ? CreateOrEditRateLimitPolicyDto.fromJS(_data["rateLimitPolicy"])
+        : (undefined as any);
+      if (Array.isArray(_data["algorithms"])) {
+        this.algorithms = [] as any;
+        for (let item of _data["algorithms"])
+          this.algorithms!.push(ComboboxItemDto.fromJS(item));
+      }
+      if (Array.isArray(_data["partitionTypes"])) {
+        this.partitionTypes = [] as any;
+        for (let item of _data["partitionTypes"])
+          this.partitionTypes!.push(ComboboxItemDto.fromJS(item));
+      }
+    }
+  }
+
+  static fromJS(data: any): GetRateLimitPolicyForEditOutput {
+    data = typeof data === "object" ? data : {};
+    let result = new GetRateLimitPolicyForEditOutput();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["rateLimitPolicy"] = this.rateLimitPolicy
+      ? this.rateLimitPolicy.toJSON()
+      : (undefined as any);
+    if (Array.isArray(this.algorithms)) {
+      data["algorithms"] = [];
+      for (let item of this.algorithms)
+        data["algorithms"].push(item ? item.toJSON() : (undefined as any));
+    }
+    if (Array.isArray(this.partitionTypes)) {
+      data["partitionTypes"] = [];
+      for (let item of this.partitionTypes)
+        data["partitionTypes"].push(item ? item.toJSON() : (undefined as any));
+    }
+    return data;
+  }
+}
+
+export interface IGetRateLimitPolicyForEditOutput {
+  rateLimitPolicy: CreateOrEditRateLimitPolicyDto;
+  algorithms: ComboboxItemDto[] | undefined;
+  partitionTypes: ComboboxItemDto[] | undefined;
+}
+
 export class GetRecentTenantsOutput implements IGetRecentTenantsOutput {
   recentTenantsDayCount!: number;
   maxRecentTenantsShownCount!: number;
@@ -27770,6 +28790,100 @@ export interface ILdapSettingsEditDto {
   useSsl: boolean;
 }
 
+export class LinkExternalLoginInput implements ILinkExternalLoginInput {
+  authProvider!: string;
+  providerKey!: string;
+  providerAccessCode!: string;
+
+  constructor(data?: ILinkExternalLoginInput) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.authProvider = _data["authProvider"];
+      this.providerKey = _data["providerKey"];
+      this.providerAccessCode = _data["providerAccessCode"];
+    }
+  }
+
+  static fromJS(data: any): LinkExternalLoginInput {
+    data = typeof data === "object" ? data : {};
+    let result = new LinkExternalLoginInput();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["authProvider"] = this.authProvider;
+    data["providerKey"] = this.providerKey;
+    data["providerAccessCode"] = this.providerAccessCode;
+    return data;
+  }
+}
+
+export interface ILinkExternalLoginInput {
+  authProvider: string;
+  providerKey: string;
+  providerAccessCode: string;
+}
+
+export class LinkExternalLoginResult implements ILinkExternalLoginResult {
+  success!: boolean;
+  providerAlreadyLinkedToAnotherUser!: boolean;
+  canMerge!: boolean;
+  existingUserEmail!: string | undefined;
+
+  constructor(data?: ILinkExternalLoginResult) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.success = _data["success"];
+      this.providerAlreadyLinkedToAnotherUser =
+        _data["providerAlreadyLinkedToAnotherUser"];
+      this.canMerge = _data["canMerge"];
+      this.existingUserEmail = _data["existingUserEmail"];
+    }
+  }
+
+  static fromJS(data: any): LinkExternalLoginResult {
+    data = typeof data === "object" ? data : {};
+    let result = new LinkExternalLoginResult();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["success"] = this.success;
+    data["providerAlreadyLinkedToAnotherUser"] =
+      this.providerAlreadyLinkedToAnotherUser;
+    data["canMerge"] = this.canMerge;
+    data["existingUserEmail"] = this.existingUserEmail;
+    return data;
+  }
+}
+
+export interface ILinkExternalLoginResult {
+  success: boolean;
+  providerAlreadyLinkedToAnotherUser: boolean;
+  canMerge: boolean;
+  existingUserEmail: string | undefined;
+}
+
 export class LinkToUserInput implements ILinkToUserInput {
   tenancyName!: string | undefined;
   usernameOrEmailAddress!: string;
@@ -29009,6 +30123,54 @@ export interface IMemberActivity {
   closed: number;
   rate: string | undefined;
   profilePictureName: string | undefined;
+}
+
+export class MergeExternalLoginInput implements IMergeExternalLoginInput {
+  authProvider!: string;
+  providerKey!: string;
+  providerAccessCode!: string;
+  targetUserPassword!: string;
+
+  constructor(data?: IMergeExternalLoginInput) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.authProvider = _data["authProvider"];
+      this.providerKey = _data["providerKey"];
+      this.providerAccessCode = _data["providerAccessCode"];
+      this.targetUserPassword = _data["targetUserPassword"];
+    }
+  }
+
+  static fromJS(data: any): MergeExternalLoginInput {
+    data = typeof data === "object" ? data : {};
+    let result = new MergeExternalLoginInput();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["authProvider"] = this.authProvider;
+    data["providerKey"] = this.providerKey;
+    data["providerAccessCode"] = this.providerAccessCode;
+    data["targetUserPassword"] = this.targetUserPassword;
+    return data;
+  }
+}
+
+export interface IMergeExternalLoginInput {
+  authProvider: string;
+  providerKey: string;
+  providerAccessCode: string;
+  targetUserPassword: string;
 }
 
 export class MicrosoftExternalLoginProviderSettings implements IMicrosoftExternalLoginProviderSettings {
@@ -30374,6 +31536,54 @@ export interface IPagedResultDtoOfOrganizationUnitUserListDto {
   totalCount: number;
 }
 
+export class PagedResultDtoOfRateLimitPolicyDto implements IPagedResultDtoOfRateLimitPolicyDto {
+  items!: RateLimitPolicyDto[] | undefined;
+  totalCount!: number;
+
+  constructor(data?: IPagedResultDtoOfRateLimitPolicyDto) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      if (Array.isArray(_data["items"])) {
+        this.items = [] as any;
+        for (let item of _data["items"])
+          this.items!.push(RateLimitPolicyDto.fromJS(item));
+      }
+      this.totalCount = _data["totalCount"];
+    }
+  }
+
+  static fromJS(data: any): PagedResultDtoOfRateLimitPolicyDto {
+    data = typeof data === "object" ? data : {};
+    let result = new PagedResultDtoOfRateLimitPolicyDto();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    if (Array.isArray(this.items)) {
+      data["items"] = [];
+      for (let item of this.items)
+        data["items"].push(item ? item.toJSON() : (undefined as any));
+    }
+    data["totalCount"] = this.totalCount;
+    return data;
+  }
+}
+
+export interface IPagedResultDtoOfRateLimitPolicyDto {
+  items: RateLimitPolicyDto[] | undefined;
+  totalCount: number;
+}
+
 export class PagedResultDtoOfSubscriptionPaymentListDto implements IPagedResultDtoOfSubscriptionPaymentListDto {
   items!: SubscriptionPaymentListDto[] | undefined;
   totalCount!: number;
@@ -30988,6 +32198,111 @@ export interface IQrLoginAuthenticateModel {
   sessionId: string | undefined;
 }
 
+export enum RateLimitAlgorithm {
+  FixedWindow = 0,
+  SlidingWindow = 1,
+  TokenBucket = 2,
+  Concurrency = 3,
+}
+
+export enum RateLimitPartitionType {
+  ByClientIp = 0,
+  ByUser = 1,
+  ByApiKey = 2,
+}
+
+export class RateLimitPolicyDto implements IRateLimitPolicyDto {
+  id!: number;
+  name!: string | undefined;
+  isEnabled!: boolean;
+  algorithm!: RateLimitAlgorithm;
+  partitionType!: RateLimitPartitionType;
+  isGlobal!: boolean;
+  endpointPattern!: string | undefined;
+  permitLimit!: number;
+  windowInSeconds!: number;
+  queueLimit!: number;
+  segmentsPerWindow!: number;
+  tokensPerPeriod!: number;
+  replenishmentPeriodInSeconds!: number;
+  httpStatusCode!: number;
+  customMessage!: string | undefined;
+
+  constructor(data?: IRateLimitPolicyDto) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.id = _data["id"];
+      this.name = _data["name"];
+      this.isEnabled = _data["isEnabled"];
+      this.algorithm = _data["algorithm"];
+      this.partitionType = _data["partitionType"];
+      this.isGlobal = _data["isGlobal"];
+      this.endpointPattern = _data["endpointPattern"];
+      this.permitLimit = _data["permitLimit"];
+      this.windowInSeconds = _data["windowInSeconds"];
+      this.queueLimit = _data["queueLimit"];
+      this.segmentsPerWindow = _data["segmentsPerWindow"];
+      this.tokensPerPeriod = _data["tokensPerPeriod"];
+      this.replenishmentPeriodInSeconds = _data["replenishmentPeriodInSeconds"];
+      this.httpStatusCode = _data["httpStatusCode"];
+      this.customMessage = _data["customMessage"];
+    }
+  }
+
+  static fromJS(data: any): RateLimitPolicyDto {
+    data = typeof data === "object" ? data : {};
+    let result = new RateLimitPolicyDto();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["id"] = this.id;
+    data["name"] = this.name;
+    data["isEnabled"] = this.isEnabled;
+    data["algorithm"] = this.algorithm;
+    data["partitionType"] = this.partitionType;
+    data["isGlobal"] = this.isGlobal;
+    data["endpointPattern"] = this.endpointPattern;
+    data["permitLimit"] = this.permitLimit;
+    data["windowInSeconds"] = this.windowInSeconds;
+    data["queueLimit"] = this.queueLimit;
+    data["segmentsPerWindow"] = this.segmentsPerWindow;
+    data["tokensPerPeriod"] = this.tokensPerPeriod;
+    data["replenishmentPeriodInSeconds"] = this.replenishmentPeriodInSeconds;
+    data["httpStatusCode"] = this.httpStatusCode;
+    data["customMessage"] = this.customMessage;
+    return data;
+  }
+}
+
+export interface IRateLimitPolicyDto {
+  id: number;
+  name: string | undefined;
+  isEnabled: boolean;
+  algorithm: RateLimitAlgorithm;
+  partitionType: RateLimitPartitionType;
+  isGlobal: boolean;
+  endpointPattern: string | undefined;
+  permitLimit: number;
+  windowInSeconds: number;
+  queueLimit: number;
+  segmentsPerWindow: number;
+  tokensPerPeriod: number;
+  replenishmentPeriodInSeconds: number;
+  httpStatusCode: number;
+  customMessage: string | undefined;
+}
+
 export class RecentTenant implements IRecentTenant {
   id!: number;
   name!: string | undefined;
@@ -31429,10 +32744,7 @@ export interface IRenamePageInput {
 export class ResetPasswordInput implements IResetPasswordInput {
   userId!: number;
   resetCode!: string | undefined;
-  expireDate!: dayjs.Dayjs;
   password!: string | undefined;
-  returnUrl!: string | undefined;
-  singleSignIn!: string | undefined;
   c!: string | undefined;
 
   constructor(data?: IResetPasswordInput) {
@@ -31448,12 +32760,7 @@ export class ResetPasswordInput implements IResetPasswordInput {
     if (_data) {
       this.userId = _data["userId"];
       this.resetCode = _data["resetCode"];
-      this.expireDate = _data["expireDate"]
-        ? dayjs(_data["expireDate"].toString())
-        : (undefined as any);
       this.password = _data["password"];
-      this.returnUrl = _data["returnUrl"];
-      this.singleSignIn = _data["singleSignIn"];
       this.c = _data["c"];
     }
   }
@@ -31469,12 +32776,7 @@ export class ResetPasswordInput implements IResetPasswordInput {
     data = typeof data === "object" ? data : {};
     data["userId"] = this.userId;
     data["resetCode"] = this.resetCode;
-    data["expireDate"] = this.expireDate
-      ? this.expireDate.toISOString()
-      : (undefined as any);
     data["password"] = this.password;
-    data["returnUrl"] = this.returnUrl;
-    data["singleSignIn"] = this.singleSignIn;
     data["c"] = this.c;
     return data;
   }
@@ -31483,10 +32785,7 @@ export class ResetPasswordInput implements IResetPasswordInput {
 export interface IResetPasswordInput {
   userId: number;
   resetCode: string | undefined;
-  expireDate: dayjs.Dayjs;
   password: string | undefined;
-  returnUrl: string | undefined;
-  singleSignIn: string | undefined;
   c: string | undefined;
 }
 
@@ -34711,6 +36010,82 @@ export class UnblockUserInput implements IUnblockUserInput {
 export interface IUnblockUserInput {
   userId: number;
   tenantId: number | undefined;
+}
+
+export class UnlinkExternalLoginInput implements IUnlinkExternalLoginInput {
+  authProvider!: string;
+
+  constructor(data?: IUnlinkExternalLoginInput) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.authProvider = _data["authProvider"];
+    }
+  }
+
+  static fromJS(data: any): UnlinkExternalLoginInput {
+    data = typeof data === "object" ? data : {};
+    let result = new UnlinkExternalLoginInput();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["authProvider"] = this.authProvider;
+    return data;
+  }
+}
+
+export interface IUnlinkExternalLoginInput {
+  authProvider: string;
+}
+
+export class UnlinkExternalLoginResult implements IUnlinkExternalLoginResult {
+  success!: boolean;
+  requiresPasswordSetup!: boolean;
+
+  constructor(data?: IUnlinkExternalLoginResult) {
+    if (data) {
+      for (var property in data) {
+        if (data.hasOwnProperty(property))
+          (this as any)[property] = (data as any)[property];
+      }
+    }
+  }
+
+  init(_data?: any) {
+    if (_data) {
+      this.success = _data["success"];
+      this.requiresPasswordSetup = _data["requiresPasswordSetup"];
+    }
+  }
+
+  static fromJS(data: any): UnlinkExternalLoginResult {
+    data = typeof data === "object" ? data : {};
+    let result = new UnlinkExternalLoginResult();
+    result.init(data);
+    return result;
+  }
+
+  toJSON(data?: any) {
+    data = typeof data === "object" ? data : {};
+    data["success"] = this.success;
+    data["requiresPasswordSetup"] = this.requiresPasswordSetup;
+    return data;
+  }
+}
+
+export interface IUnlinkExternalLoginResult {
+  success: boolean;
+  requiresPasswordSetup: boolean;
 }
 
 export class UnlinkUserInput implements IUnlinkUserInput {

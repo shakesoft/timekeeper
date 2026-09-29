@@ -56,6 +56,7 @@ const ActiveSessions = React.lazy(
   () => import("../pages/admin/active-sessions"),
 );
 const Maintenance = React.lazy(() => import("../pages/admin/maintenance"));
+const RateLimiting = React.lazy(() => import("../pages/admin/rate-limiting"));
 const MassNotifications = React.lazy(
   () => import("../pages/admin/mass-notifications"),
 );
@@ -233,6 +234,7 @@ const AppRouter = () => {
                 element={<ActiveSessions />}
               />
               <Route path="admin/maintenance" element={<Maintenance />} />
+              <Route path="admin/rate-limiting" element={<RateLimiting />} />
               <Route path="notifications" element={<Notifications />} />
               <Route
                 path="admin/mass-notifications"

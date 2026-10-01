@@ -1,0 +1,186 @@
+<div [@routerTransition]>
+    <sub-header [title]="'RateLimiting' | localize" [description]="'RateLimitingHeaderInfo' | localize">
+        <div role="actions">
+            @if ('Pages.Administration.RateLimiting.Create' | permission) {
+                <button (click)="createOrEditModal.show()" class="btn btn-primary">
+                    <i class="fa fa-plus btn-md-icon"></i>
+                    <span class="d-none d-md-inline-block">
+                        {{ 'CreateNewPolicy' | localize }}
+                    </span>
+                </button>
+            }
+        </div>
+    </sub-header>
+
+    <div [class]="containerClass">
+        <div class="card card-custom gutter-b">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="form-check form-switch">
+                        <input
+                            id="RateLimitingEnabledToggle"
+                            class="form-check-input"
+                            type="checkbox"
+                            [ngModel]="isEnabled"
+                            (ngModelChange)="setIsEnabled($event)" />
+                        <label class="form-check-label fw-bold" for="RateLimitingEnabledToggle">
+                            {{ (isEnabled ? 'RateLimitingIsEnabled' : 'RateLimitingIsDisabled') | localize }}
+                        </label>
+                    </div>
+                </div>
+
+                <form class="row mb-4" autocomplete="off" (submit)="getPolicies()">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="input-group">
+                            <input
+                                [(ngModel)]="filterText"
+                                name="filterText"
+                                class="form-control"
+                                [placeholder]="l('SearchWithThreeDot')"
+                                type="text" />
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row align-items-center">
+                    <!--<Primeng-TurboTable-Start>-->
+                    <div class="primeng-datatable-container" [busyIf]="primengTableHelper.isLoading">
+                        <p-table
+                            #dataTable
+                            (onLazyLoad)="getPolicies($event)"
+                            [value]="primengTableHelper.records"
+                            rows="{{ primengTableHelper.defaultRecordsCountPerPage }}"
+                            [paginator]="false"
+                            [lazy]="true"
+                            [scrollable]="true"
+                            [tableStyle]="{ 'min-width': '50rem' }">
+                            <ng-template #header>
+                                <tr>
+                                    <th
+                                        style="width: 130px"
+                                        [hidden]="
+                                            !(
+                                                [
+                                                    'Pages.Administration.RateLimiting.Edit',
+                                                    'Pages.Administration.RateLimiting.Delete',
+                                                ] | permissionAny
+                                            )
+                                        ">
+                                        {{ 'Actions' | localize }}
+                                    </th>
+                                    <th pSortableColumn="name">
+                                        {{ 'Name' | localize }}
+                                        <p-sortIcon field="name"></p-sortIcon>
+                                    </th>
+                                    <th>{{ 'Algorithm' | localize }}</th>
+                                    <th>{{ 'PartitionType' | localize }}</th>
+                                    <th>{{ 'PermitLimit' | localize }}</th>
+                                    <th>{{ 'WindowInSeconds' | localize }}</th>
+                                    <th>{{ 'IsGlobal' | localize }}</th>
+                                    <th>{{ 'IsEnabled' | localize }}</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template #body let-record="$implicit">
+                                <tr>
+                                    <td
+                                        style="width: 130px"
+                                        [hidden]="
+                                            !(
+                                                [
+                                                    'Pages.Administration.RateLimiting.Edit',
+                                                    'Pages.Administration.RateLimiting.Delete',
+                                                ] | permissionAny
+                                            )
+                                        ">
+                                        <div class="btn-group" dropdown placement="bottom left" container="body">
+                                            <button
+                                                type="button"
+                                                class="btn btn-primary btn-sm dropdown-toggle"
+                                                dropdownToggle>
+                                                <i class="fa fa-cog"></i>
+                                                <span class="caret"></span>
+                                                {{ 'Actions' | localize }}
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" *dropdownMenu>
+                                                @if ('Pages.Administration.RateLimiting.Edit' | permission) {
+                                                    <li role="menuitem">
+                                                        <a
+                                                            href="javascript:;"
+                                                            class="dropdown-item"
+                                                            (click)="createOrEditModal.show(record.id)">
+                                                            {{ 'Edit' | localize }}
+                                                        </a>
+                                                    </li>
+                                                }
+                                                @if ('Pages.Administration.RateLimiting.Delete' | permission) {
+                                                    <li role="menuitem">
+                                                        <a
+                                                            href="javascript:;"
+                                                            class="dropdown-item"
+                                                            (click)="deletePolicy(record)">
+                                                            {{ 'Delete' | localize }}
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>{{ record.name }}</td>
+                                    <td>
+                                        <span class="badge badge-info">
+                                            {{ algorithmName[record.algorithm] | localize }}
+                                        </span>
+                                    </td>
+                                    <td>{{ partitionTypeName[record.partitionType] | localize }}</td>
+                                    <td>{{ record.permitLimit }}</td>
+                                    <td>{{ record.windowInSeconds }}</td>
+                                    <td>
+                                        @if (record.isGlobal) {
+                                            <span class="badge badge-success">{{ 'Yes' | localize }}</span>
+                                        } @else {
+                                            <span class="badge badge-secondary">{{ 'No' | localize }}</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                [checked]="record.isEnabled"
+                                                (change)="togglePolicyEnabled(record)" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        @if (primengTableHelper.totalRecordsCount == 0) {
+                            <div class="primeng-no-data">
+                                {{ 'NoData' | localize }}
+                            </div>
+                        }
+                        <div class="primeng-paging-container">
+                            <p-paginator
+                                [rows]="primengTableHelper.defaultRecordsCountPerPage"
+                                #paginator
+                                (onPageChange)="getPolicies($event)"
+                                [totalRecords]="primengTableHelper.totalRecordsCount"
+                                [rowsPerPageOptions]="primengTableHelper.predefinedRecordsCountPerPage"
+                                [showCurrentPageReport]="true"
+                                [currentPageReportTemplate]="
+                                    'TotalRecordsCount' | localize: primengTableHelper.totalRecordsCount
+                                "></p-paginator>
+                        </div>
+                    </div>
+                    <!--<Primeng-TurboTable-End>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <createOrEditRateLimitPolicyModal
+        #createOrEditModal
+        (modalSave)="getPolicies()"></createOrEditRateLimitPolicyModal>
+</div>

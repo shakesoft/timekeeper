@@ -862,11 +862,11 @@ export class AuditLogServiceProxy {
      * @param minExecutionDuration (optional) 
      * @param maxExecutionDuration (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getAuditLogs(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, serviceName?: string | null | undefined, methodName?: string | null | undefined, browserInfo?: string | null | undefined, hasException?: boolean | null | undefined, minExecutionDuration?: number | null | undefined, maxExecutionDuration?: number | null | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfAuditLogListDto> {
+    getAuditLogs(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, serviceName?: string | null | undefined, methodName?: string | null | undefined, browserInfo?: string | null | undefined, hasException?: boolean | null | undefined, minExecutionDuration?: number | null | undefined, maxExecutionDuration?: number | null | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfAuditLogListDto> {
         let url_ = this.baseUrl + "/api/services/app/AuditLog/GetAuditLogs?";
         if (startDate === null)
             throw new globalThis.Error("The parameter 'startDate' cannot be null.");
@@ -892,14 +892,14 @@ export class AuditLogServiceProxy {
             url_ += "MaxExecutionDuration=" + encodeURIComponent("" + maxExecutionDuration) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -957,11 +957,11 @@ export class AuditLogServiceProxy {
      * @param minExecutionDuration (optional) 
      * @param maxExecutionDuration (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getAuditLogsToExcel(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, serviceName?: string | null | undefined, methodName?: string | null | undefined, browserInfo?: string | null | undefined, hasException?: boolean | null | undefined, minExecutionDuration?: number | null | undefined, maxExecutionDuration?: number | null | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<FileDto> {
+    getAuditLogsToExcel(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, serviceName?: string | null | undefined, methodName?: string | null | undefined, browserInfo?: string | null | undefined, hasException?: boolean | null | undefined, minExecutionDuration?: number | null | undefined, maxExecutionDuration?: number | null | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<FileDto> {
         let url_ = this.baseUrl + "/api/services/app/AuditLog/GetAuditLogsToExcel?";
         if (startDate === null)
             throw new globalThis.Error("The parameter 'startDate' cannot be null.");
@@ -987,14 +987,14 @@ export class AuditLogServiceProxy {
             url_ += "MaxExecutionDuration=" + encodeURIComponent("" + maxExecutionDuration) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -1105,11 +1105,11 @@ export class AuditLogServiceProxy {
      * @param userName (optional) 
      * @param entityTypeFullName (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getEntityChanges(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, entityTypeFullName?: string | null | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfEntityChangeListDto> {
+    getEntityChanges(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, entityTypeFullName?: string | null | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfEntityChangeListDto> {
         let url_ = this.baseUrl + "/api/services/app/AuditLog/GetEntityChanges?";
         if (startDate === null)
             throw new globalThis.Error("The parameter 'startDate' cannot be null.");
@@ -1125,14 +1125,14 @@ export class AuditLogServiceProxy {
             url_ += "EntityTypeFullName=" + encodeURIComponent("" + entityTypeFullName) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -1183,11 +1183,11 @@ export class AuditLogServiceProxy {
      * @param entityTypeFullName (optional) 
      * @param entityId (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getEntityTypeChanges(entityTypeFullName?: string | null | undefined, entityId?: string | null | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfEntityChangeListDto> {
+    getEntityTypeChanges(entityTypeFullName?: string | null | undefined, entityId?: string | null | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfEntityChangeListDto> {
         let url_ = this.baseUrl + "/api/services/app/AuditLog/GetEntityTypeChanges?";
         if (entityTypeFullName !== undefined && entityTypeFullName !== null)
             url_ += "EntityTypeFullName=" + encodeURIComponent("" + entityTypeFullName) + "&";
@@ -1195,14 +1195,14 @@ export class AuditLogServiceProxy {
             url_ += "EntityId=" + encodeURIComponent("" + entityId) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -1255,11 +1255,11 @@ export class AuditLogServiceProxy {
      * @param userName (optional) 
      * @param entityTypeFullName (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getEntityChangesToExcel(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, entityTypeFullName?: string | null | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<FileDto> {
+    getEntityChangesToExcel(startDate?: DateTime | undefined, endDate?: DateTime | undefined, userName?: string | null | undefined, entityTypeFullName?: string | null | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<FileDto> {
         let url_ = this.baseUrl + "/api/services/app/AuditLog/GetEntityChangesToExcel?";
         if (startDate === null)
             throw new globalThis.Error("The parameter 'startDate' cannot be null.");
@@ -1275,14 +1275,14 @@ export class AuditLogServiceProxy {
             url_ += "EntityTypeFullName=" + encodeURIComponent("" + entityTypeFullName) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -5056,6 +5056,240 @@ export class EntityChangeServiceProxy {
 }
 
 @Injectable()
+export class ExternalLoginLinkServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ?? "";
+    }
+
+    /**
+     * @return OK
+     */
+    getExternalLogins(): Observable<ExternalLoginProviderDto[]> {
+        let url_ = this.baseUrl + "/api/services/app/ExternalLoginLink/GetExternalLogins";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetExternalLogins(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetExternalLogins(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<ExternalLoginProviderDto[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<ExternalLoginProviderDto[]>;
+        }));
+    }
+
+    protected processGetExternalLogins(response: HttpResponseBase): Observable<ExternalLoginProviderDto[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(ExternalLoginProviderDto.fromJS(item));
+            }
+            else {
+                result200 = null as any;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return OK
+     */
+    linkExternalLogin(body?: LinkExternalLoginInput | undefined): Observable<LinkExternalLoginResult> {
+        let url_ = this.baseUrl + "/api/services/app/ExternalLoginLink/LinkExternalLogin";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processLinkExternalLogin(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processLinkExternalLogin(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<LinkExternalLoginResult>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<LinkExternalLoginResult>;
+        }));
+    }
+
+    protected processLinkExternalLogin(response: HttpResponseBase): Observable<LinkExternalLoginResult> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = LinkExternalLoginResult.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return OK
+     */
+    unlinkExternalLogin(body?: UnlinkExternalLoginInput | undefined): Observable<UnlinkExternalLoginResult> {
+        let url_ = this.baseUrl + "/api/services/app/ExternalLoginLink/UnlinkExternalLogin";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processUnlinkExternalLogin(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processUnlinkExternalLogin(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<UnlinkExternalLoginResult>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<UnlinkExternalLoginResult>;
+        }));
+    }
+
+    protected processUnlinkExternalLogin(response: HttpResponseBase): Observable<UnlinkExternalLoginResult> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = UnlinkExternalLoginResult.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return OK
+     */
+    mergeAndLinkExternalLogin(body?: MergeExternalLoginInput | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/ExternalLoginLink/MergeAndLinkExternalLogin";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processMergeAndLinkExternalLogin(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processMergeAndLinkExternalLogin(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processMergeAndLinkExternalLogin(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return _observableOf(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+}
+
+@Injectable()
 export class FriendshipServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
@@ -5436,6 +5670,69 @@ export class FriendshipServiceProxy {
         if (status === 200) {
             return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
             return _observableOf(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+}
+
+@Injectable()
+export class HealthCheckServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ?? "";
+    }
+
+    /**
+     * @return OK
+     */
+    getHealthChecks(): Observable<ListResultDtoOfHealthCheckItemDto> {
+        let url_ = this.baseUrl + "/api/services/app/HealthCheck/GetHealthChecks";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetHealthChecks(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetHealthChecks(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<ListResultDtoOfHealthCheckItemDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<ListResultDtoOfHealthCheckItemDto>;
+        }));
+    }
+
+    protected processGetHealthChecks(response: HttpResponseBase): Observable<ListResultDtoOfHealthCheckItemDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = ListResultDtoOfHealthCheckItemDto.fromJS(resultData200);
+            return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
@@ -7506,6 +7803,62 @@ export class NotificationServiceProxy {
         }
         return _observableOf(null as any);
     }
+
+    /**
+     * @param id (optional) 
+     * @return OK
+     */
+    getNotificationDetail(id?: string | undefined): Observable<NotificationDetailDto> {
+        let url_ = this.baseUrl + "/api/services/app/Notification/GetNotificationDetail?";
+        if (id === null)
+            throw new globalThis.Error("The parameter 'id' cannot be null.");
+        else if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetNotificationDetail(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetNotificationDetail(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<NotificationDetailDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<NotificationDetailDto>;
+        }));
+    }
+
+    protected processGetNotificationDetail(response: HttpResponseBase): Observable<NotificationDetailDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = NotificationDetailDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
 }
 
 @Injectable()
@@ -7573,11 +7926,11 @@ export class OrganizationUnitServiceProxy {
     /**
      * @param id (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getOrganizationUnitUsers(id?: number | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfOrganizationUnitUserListDto> {
+    getOrganizationUnitUsers(id?: number | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfOrganizationUnitUserListDto> {
         let url_ = this.baseUrl + "/api/services/app/OrganizationUnit/GetOrganizationUnitUsers?";
         if (id === null)
             throw new globalThis.Error("The parameter 'id' cannot be null.");
@@ -7585,14 +7938,14 @@ export class OrganizationUnitServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -7642,11 +7995,11 @@ export class OrganizationUnitServiceProxy {
     /**
      * @param id (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getOrganizationUnitRoles(id?: number | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfOrganizationUnitRoleListDto> {
+    getOrganizationUnitRoles(id?: number | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfOrganizationUnitRoleListDto> {
         let url_ = this.baseUrl + "/api/services/app/OrganizationUnit/GetOrganizationUnitRoles?";
         if (id === null)
             throw new globalThis.Error("The parameter 'id' cannot be null.");
@@ -7654,14 +8007,14 @@ export class OrganizationUnitServiceProxy {
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -8491,22 +8844,22 @@ export class PaymentServiceProxy {
 
     /**
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getPaymentHistory(sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfSubscriptionPaymentListDto> {
+    getPaymentHistory(sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfSubscriptionPaymentListDto> {
         let url_ = this.baseUrl + "/api/services/app/Payment/GetPaymentHistory?";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -9973,6 +10326,388 @@ export class ProfileServiceProxy {
 }
 
 @Injectable()
+export class RateLimitPolicyServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ?? "";
+    }
+
+    /**
+     * @return OK
+     */
+    getIsEnabled(): Observable<boolean> {
+        let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/GetIsEnabled";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetIsEnabled(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetIsEnabled(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<boolean>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<boolean>;
+        }));
+    }
+
+    protected processGetIsEnabled(response: HttpResponseBase): Observable<boolean> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+                result200 = resultData200 !== undefined ? resultData200 : null as any;
+    
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param isEnabled (optional) 
+     * @return OK
+     */
+    setIsEnabled(isEnabled?: boolean | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/SetIsEnabled?";
+        if (isEnabled === null)
+            throw new globalThis.Error("The parameter 'isEnabled' cannot be null.");
+        else if (isEnabled !== undefined)
+            url_ += "isEnabled=" + encodeURIComponent("" + isEnabled) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processSetIsEnabled(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processSetIsEnabled(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processSetIsEnabled(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return _observableOf(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return OK
+     */
+    getPolicies(body?: GetRateLimitPoliciesInput | undefined): Observable<PagedResultDtoOfRateLimitPolicyDto> {
+        let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/GetPolicies";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetPolicies(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetPolicies(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<PagedResultDtoOfRateLimitPolicyDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<PagedResultDtoOfRateLimitPolicyDto>;
+        }));
+    }
+
+    protected processGetPolicies(response: HttpResponseBase): Observable<PagedResultDtoOfRateLimitPolicyDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = PagedResultDtoOfRateLimitPolicyDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param id (optional) 
+     * @return OK
+     */
+    getPolicyForEdit(id?: number | null | undefined): Observable<GetRateLimitPolicyForEditOutput> {
+        let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/GetPolicyForEdit?";
+        if (id !== undefined && id !== null)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetPolicyForEdit(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetPolicyForEdit(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<GetRateLimitPolicyForEditOutput>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<GetRateLimitPolicyForEditOutput>;
+        }));
+    }
+
+    protected processGetPolicyForEdit(response: HttpResponseBase): Observable<GetRateLimitPolicyForEditOutput> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = GetRateLimitPolicyForEditOutput.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return OK
+     */
+    createOrEdit(body?: CreateOrEditRateLimitPolicyDto | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/CreateOrEdit";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processCreateOrEdit(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreateOrEdit(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processCreateOrEdit(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return _observableOf(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param id (optional) 
+     * @return OK
+     */
+    delete(id?: number | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/Delete?";
+        if (id === null)
+            throw new globalThis.Error("The parameter 'id' cannot be null.");
+        else if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+            })
+        };
+
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processDelete(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return _observableOf(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return OK
+     */
+    togglePolicyEnabled(body?: EntityDto | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/RateLimitPolicy/TogglePolicyEnabled";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processTogglePolicyEnabled(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processTogglePolicyEnabled(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processTogglePolicyEnabled(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return _observableOf(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+}
+
+@Injectable()
 export class RoleServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
@@ -10784,11 +11519,11 @@ export class TenantServiceProxy {
      * @param editionId (optional) 
      * @param editionIdSpecified (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getTenants(filter?: string | null | undefined, subscriptionEndDateStart?: DateTime | null | undefined, subscriptionEndDateEnd?: DateTime | null | undefined, creationDateStart?: DateTime | null | undefined, creationDateEnd?: DateTime | null | undefined, editionId?: number | null | undefined, editionIdSpecified?: boolean | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfTenantListDto> {
+    getTenants(filter?: string | null | undefined, subscriptionEndDateStart?: DateTime | null | undefined, subscriptionEndDateEnd?: DateTime | null | undefined, creationDateStart?: DateTime | null | undefined, creationDateEnd?: DateTime | null | undefined, editionId?: number | null | undefined, editionIdSpecified?: boolean | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfTenantListDto> {
         let url_ = this.baseUrl + "/api/services/app/Tenant/GetTenants?";
         if (filter !== undefined && filter !== null)
             url_ += "Filter=" + encodeURIComponent("" + filter) + "&";
@@ -10808,14 +11543,14 @@ export class TenantServiceProxy {
             url_ += "EditionIdSpecified=" + encodeURIComponent("" + editionIdSpecified) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -14906,11 +15641,11 @@ export class UserLoginServiceProxy {
      * @param endDate (optional) 
      * @param result (optional) 
      * @param sorting (optional) 
-     * @param maxResultCount (optional) 
      * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
      * @return OK
      */
-    getUserLoginAttempts(filter?: string | null | undefined, startDate?: DateTime | null | undefined, endDate?: DateTime | null | undefined, result?: AbpLoginResultType | undefined, sorting?: string | null | undefined, maxResultCount?: number | undefined, skipCount?: number | undefined): Observable<PagedResultDtoOfUserLoginAttemptDto> {
+    getUserLoginAttempts(filter?: string | null | undefined, startDate?: DateTime | null | undefined, endDate?: DateTime | null | undefined, result?: AbpLoginResultType | undefined, sorting?: string | null | undefined, skipCount?: number | undefined, maxResultCount?: number | undefined): Observable<PagedResultDtoOfUserLoginAttemptDto> {
         let url_ = this.baseUrl + "/api/services/app/UserLogin/GetUserLoginAttempts?";
         if (filter !== undefined && filter !== null)
             url_ += "Filter=" + encodeURIComponent("" + filter) + "&";
@@ -14924,14 +15659,14 @@ export class UserLoginServiceProxy {
             url_ += "Result=" + encodeURIComponent("" + result) + "&";
         if (sorting !== undefined && sorting !== null)
             url_ += "Sorting=" + encodeURIComponent("" + sorting) + "&";
-        if (maxResultCount === null)
-            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
-        else if (maxResultCount !== undefined)
-            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         if (skipCount === null)
             throw new globalThis.Error("The parameter 'skipCount' cannot be null.");
         else if (skipCount !== undefined)
             url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&";
+        if (maxResultCount === null)
+            throw new globalThis.Error("The parameter 'maxResultCount' cannot be null.");
+        else if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -15026,6 +15761,171 @@ export class UserLoginServiceProxy {
                 result200 = resultData200 !== undefined ? resultData200 : null as any;
     
             return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+}
+
+@Injectable()
+export class UserSessionServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ?? "";
+    }
+
+    /**
+     * @param userId (optional) 
+     * @return OK
+     */
+    getSessions(userId?: number | null | undefined): Observable<ListResultDtoOfUserSessionDto> {
+        let url_ = this.baseUrl + "/api/services/app/UserSession/GetSessions?";
+        if (userId !== undefined && userId !== null)
+            url_ += "UserId=" + encodeURIComponent("" + userId) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetSessions(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetSessions(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<ListResultDtoOfUserSessionDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<ListResultDtoOfUserSessionDto>;
+        }));
+    }
+
+    protected processGetSessions(response: HttpResponseBase): Observable<ListResultDtoOfUserSessionDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = ListResultDtoOfUserSessionDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @param body (optional) 
+     * @return OK
+     */
+    revokeSession(body?: EntityDtoOfInt64 | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/UserSession/RevokeSession";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processRevokeSession(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processRevokeSession(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processRevokeSession(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return _observableOf(null as any);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    /**
+     * @return OK
+     */
+    revokeAllOtherSessions(): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/UserSession/RevokeAllOtherSessions";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processRevokeAllOtherSessions(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processRevokeAllOtherSessions(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<void>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<void>;
+        }));
+    }
+
+    protected processRevokeAllOtherSessions(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return _observableOf(null as any);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
@@ -17439,6 +18339,98 @@ export interface ICreateMassNotificationInput {
     targetNotifiers: string[] | undefined;
 }
 
+export class CreateOrEditRateLimitPolicyDto implements ICreateOrEditRateLimitPolicyDto {
+    id!: number | undefined;
+    name!: string;
+    isEnabled!: boolean;
+    algorithm!: RateLimitAlgorithm;
+    partitionType!: RateLimitPartitionType;
+    isGlobal!: boolean;
+    endpointPattern!: string | undefined;
+    permitLimit!: number;
+    windowInSeconds!: number;
+    queueLimit!: number;
+    segmentsPerWindow!: number;
+    tokensPerPeriod!: number;
+    replenishmentPeriodInSeconds!: number;
+    httpStatusCode!: number;
+    customMessage!: string | undefined;
+
+    constructor(data?: ICreateOrEditRateLimitPolicyDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.name = _data["name"];
+            this.isEnabled = _data["isEnabled"];
+            this.algorithm = _data["algorithm"];
+            this.partitionType = _data["partitionType"];
+            this.isGlobal = _data["isGlobal"];
+            this.endpointPattern = _data["endpointPattern"];
+            this.permitLimit = _data["permitLimit"];
+            this.windowInSeconds = _data["windowInSeconds"];
+            this.queueLimit = _data["queueLimit"];
+            this.segmentsPerWindow = _data["segmentsPerWindow"];
+            this.tokensPerPeriod = _data["tokensPerPeriod"];
+            this.replenishmentPeriodInSeconds = _data["replenishmentPeriodInSeconds"];
+            this.httpStatusCode = _data["httpStatusCode"];
+            this.customMessage = _data["customMessage"];
+        }
+    }
+
+    static fromJS(data: any): CreateOrEditRateLimitPolicyDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new CreateOrEditRateLimitPolicyDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["name"] = this.name;
+        data["isEnabled"] = this.isEnabled;
+        data["algorithm"] = this.algorithm;
+        data["partitionType"] = this.partitionType;
+        data["isGlobal"] = this.isGlobal;
+        data["endpointPattern"] = this.endpointPattern;
+        data["permitLimit"] = this.permitLimit;
+        data["windowInSeconds"] = this.windowInSeconds;
+        data["queueLimit"] = this.queueLimit;
+        data["segmentsPerWindow"] = this.segmentsPerWindow;
+        data["tokensPerPeriod"] = this.tokensPerPeriod;
+        data["replenishmentPeriodInSeconds"] = this.replenishmentPeriodInSeconds;
+        data["httpStatusCode"] = this.httpStatusCode;
+        data["customMessage"] = this.customMessage;
+        return data;
+    }
+}
+
+export interface ICreateOrEditRateLimitPolicyDto {
+    id: number | undefined;
+    name: string;
+    isEnabled: boolean;
+    algorithm: RateLimitAlgorithm;
+    partitionType: RateLimitPartitionType;
+    isGlobal: boolean;
+    endpointPattern: string | undefined;
+    permitLimit: number;
+    windowInSeconds: number;
+    queueLimit: number;
+    segmentsPerWindow: number;
+    tokensPerPeriod: number;
+    replenishmentPeriodInSeconds: number;
+    httpStatusCode: number;
+    customMessage: string | undefined;
+}
+
 export class CreateOrUpdateLanguageInput implements ICreateOrUpdateLanguageInput {
     language!: ApplicationLanguageEditDto;
 
@@ -19388,6 +20380,74 @@ export interface IExternalAuthenticateResultModel {
     refreshTokenExpireInSeconds: number;
 }
 
+export class ExternalLoginProviderDto implements IExternalLoginProviderDto {
+    name!: string | undefined;
+    clientId!: string | undefined;
+    isLinked!: boolean;
+    canUnlink!: boolean;
+    emailAddress!: string | undefined;
+    additionalParams!: { [key: string]: string; } | undefined;
+
+    constructor(data?: IExternalLoginProviderDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.name = _data["name"];
+            this.clientId = _data["clientId"];
+            this.isLinked = _data["isLinked"];
+            this.canUnlink = _data["canUnlink"];
+            this.emailAddress = _data["emailAddress"];
+            if (_data["additionalParams"]) {
+                this.additionalParams = {} as any;
+                for (let key in _data["additionalParams"]) {
+                    if (_data["additionalParams"].hasOwnProperty(key))
+                        (this.additionalParams as any)![key] = _data["additionalParams"][key];
+                }
+            }
+        }
+    }
+
+    static fromJS(data: any): ExternalLoginProviderDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new ExternalLoginProviderDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["clientId"] = this.clientId;
+        data["isLinked"] = this.isLinked;
+        data["canUnlink"] = this.canUnlink;
+        data["emailAddress"] = this.emailAddress;
+        if (this.additionalParams) {
+            data["additionalParams"] = {};
+            for (let key in this.additionalParams) {
+                if (this.additionalParams.hasOwnProperty(key))
+                    (data["additionalParams"] as any)[key] = (this.additionalParams as any)[key];
+            }
+        }
+        return data;
+    }
+}
+
+export interface IExternalLoginProviderDto {
+    name: string | undefined;
+    clientId: string | undefined;
+    isLinked: boolean;
+    canUnlink: boolean;
+    emailAddress: string | undefined;
+    additionalParams: { [key: string]: string; } | undefined;
+}
+
 export class ExternalLoginProviderInfoModel implements IExternalLoginProviderInfoModel {
     name!: string | undefined;
     clientId!: string | undefined;
@@ -20728,6 +21788,8 @@ export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInform
     impersonatorTenant!: TenantLoginInfoDto;
     application!: ApplicationInfoDto;
     theme!: UiCustomizationSettingsDto;
+    isSessionManagementEnabled!: boolean;
+    isSessionRevocationEnabled!: boolean;
 
     constructor(data?: IGetCurrentLoginInformationsOutput) {
         if (data) {
@@ -20746,6 +21808,8 @@ export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInform
             this.impersonatorTenant = _data["impersonatorTenant"] ? TenantLoginInfoDto.fromJS(_data["impersonatorTenant"]) : undefined as any;
             this.application = _data["application"] ? ApplicationInfoDto.fromJS(_data["application"]) : undefined as any;
             this.theme = _data["theme"] ? UiCustomizationSettingsDto.fromJS(_data["theme"]) : undefined as any;
+            this.isSessionManagementEnabled = _data["isSessionManagementEnabled"];
+            this.isSessionRevocationEnabled = _data["isSessionRevocationEnabled"];
         }
     }
 
@@ -20764,6 +21828,8 @@ export class GetCurrentLoginInformationsOutput implements IGetCurrentLoginInform
         data["impersonatorTenant"] = this.impersonatorTenant ? this.impersonatorTenant.toJSON() : undefined as any;
         data["application"] = this.application ? this.application.toJSON() : undefined as any;
         data["theme"] = this.theme ? this.theme.toJSON() : undefined as any;
+        data["isSessionManagementEnabled"] = this.isSessionManagementEnabled;
+        data["isSessionRevocationEnabled"] = this.isSessionRevocationEnabled;
         return data;
     }
 }
@@ -20775,6 +21841,8 @@ export interface IGetCurrentLoginInformationsOutput {
     impersonatorTenant: TenantLoginInfoDto;
     application: ApplicationInfoDto;
     theme: UiCustomizationSettingsDto;
+    isSessionManagementEnabled: boolean;
+    isSessionRevocationEnabled: boolean;
 }
 
 export class GetDailySalesOutput implements IGetDailySalesOutput {
@@ -21737,6 +22805,122 @@ export interface IGetPublishedNotificationsOutput {
     totalCount: number;
 }
 
+export class GetRateLimitPoliciesInput implements IGetRateLimitPoliciesInput {
+    maxResultCount!: number;
+    skipCount!: number;
+    sorting!: string | undefined;
+    filter!: string | undefined;
+    algorithm!: RateLimitAlgorithm;
+    isEnabled!: boolean | undefined;
+
+    constructor(data?: IGetRateLimitPoliciesInput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.maxResultCount = _data["maxResultCount"];
+            this.skipCount = _data["skipCount"];
+            this.sorting = _data["sorting"];
+            this.filter = _data["filter"];
+            this.algorithm = _data["algorithm"];
+            this.isEnabled = _data["isEnabled"];
+        }
+    }
+
+    static fromJS(data: any): GetRateLimitPoliciesInput {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetRateLimitPoliciesInput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["maxResultCount"] = this.maxResultCount;
+        data["skipCount"] = this.skipCount;
+        data["sorting"] = this.sorting;
+        data["filter"] = this.filter;
+        data["algorithm"] = this.algorithm;
+        data["isEnabled"] = this.isEnabled;
+        return data;
+    }
+}
+
+export interface IGetRateLimitPoliciesInput {
+    maxResultCount: number;
+    skipCount: number;
+    sorting: string | undefined;
+    filter: string | undefined;
+    algorithm: RateLimitAlgorithm;
+    isEnabled: boolean | undefined;
+}
+
+export class GetRateLimitPolicyForEditOutput implements IGetRateLimitPolicyForEditOutput {
+    rateLimitPolicy!: CreateOrEditRateLimitPolicyDto;
+    algorithms!: ComboboxItemDto[] | undefined;
+    partitionTypes!: ComboboxItemDto[] | undefined;
+
+    constructor(data?: IGetRateLimitPolicyForEditOutput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.rateLimitPolicy = _data["rateLimitPolicy"] ? CreateOrEditRateLimitPolicyDto.fromJS(_data["rateLimitPolicy"]) : undefined as any;
+            if (Array.isArray(_data["algorithms"])) {
+                this.algorithms = [] as any;
+                for (let item of _data["algorithms"])
+                    this.algorithms!.push(ComboboxItemDto.fromJS(item));
+            }
+            if (Array.isArray(_data["partitionTypes"])) {
+                this.partitionTypes = [] as any;
+                for (let item of _data["partitionTypes"])
+                    this.partitionTypes!.push(ComboboxItemDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): GetRateLimitPolicyForEditOutput {
+        data = typeof data === 'object' ? data : {};
+        let result = new GetRateLimitPolicyForEditOutput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["rateLimitPolicy"] = this.rateLimitPolicy ? this.rateLimitPolicy.toJSON() : undefined as any;
+        if (Array.isArray(this.algorithms)) {
+            data["algorithms"] = [];
+            for (let item of this.algorithms)
+                data["algorithms"].push(item ? item.toJSON() : undefined as any);
+        }
+        if (Array.isArray(this.partitionTypes)) {
+            data["partitionTypes"] = [];
+            for (let item of this.partitionTypes)
+                data["partitionTypes"].push(item ? item.toJSON() : undefined as any);
+        }
+        return data;
+    }
+}
+
+export interface IGetRateLimitPolicyForEditOutput {
+    rateLimitPolicy: CreateOrEditRateLimitPolicyDto;
+    algorithms: ComboboxItemDto[] | undefined;
+    partitionTypes: ComboboxItemDto[] | undefined;
+}
+
 export class GetRecentTenantsOutput implements IGetRecentTenantsOutput {
     recentTenantsDayCount!: number;
     maxRecentTenantsShownCount!: number;
@@ -22403,6 +23587,54 @@ export interface IGoogleExternalLoginProviderSettings {
     clientId: string | undefined;
     clientSecret: string | undefined;
     userInfoEndpoint: string | undefined;
+}
+
+export class HealthCheckItemDto implements IHealthCheckItemDto {
+    name!: string | undefined;
+    status!: string | undefined;
+    description!: string | undefined;
+    duration!: string;
+
+    constructor(data?: IHealthCheckItemDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.name = _data["name"];
+            this.status = _data["status"];
+            this.description = _data["description"];
+            this.duration = _data["duration"];
+        }
+    }
+
+    static fromJS(data: any): HealthCheckItemDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new HealthCheckItemDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["status"] = this.status;
+        data["description"] = this.description;
+        data["duration"] = this.duration;
+        return data;
+    }
+}
+
+export interface IHealthCheckItemDto {
+    name: string | undefined;
+    status: string | undefined;
+    description: string | undefined;
+    duration: string;
 }
 
 export class HostBillingSettingsEditDto implements IHostBillingSettingsEditDto {
@@ -23444,6 +24676,98 @@ export interface ILdapSettingsEditDto {
     useSsl: boolean;
 }
 
+export class LinkExternalLoginInput implements ILinkExternalLoginInput {
+    authProvider!: string;
+    providerKey!: string;
+    providerAccessCode!: string;
+
+    constructor(data?: ILinkExternalLoginInput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.authProvider = _data["authProvider"];
+            this.providerKey = _data["providerKey"];
+            this.providerAccessCode = _data["providerAccessCode"];
+        }
+    }
+
+    static fromJS(data: any): LinkExternalLoginInput {
+        data = typeof data === 'object' ? data : {};
+        let result = new LinkExternalLoginInput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["authProvider"] = this.authProvider;
+        data["providerKey"] = this.providerKey;
+        data["providerAccessCode"] = this.providerAccessCode;
+        return data;
+    }
+}
+
+export interface ILinkExternalLoginInput {
+    authProvider: string;
+    providerKey: string;
+    providerAccessCode: string;
+}
+
+export class LinkExternalLoginResult implements ILinkExternalLoginResult {
+    success!: boolean;
+    providerAlreadyLinkedToAnotherUser!: boolean;
+    canMerge!: boolean;
+    existingUserEmail!: string | undefined;
+
+    constructor(data?: ILinkExternalLoginResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.success = _data["success"];
+            this.providerAlreadyLinkedToAnotherUser = _data["providerAlreadyLinkedToAnotherUser"];
+            this.canMerge = _data["canMerge"];
+            this.existingUserEmail = _data["existingUserEmail"];
+        }
+    }
+
+    static fromJS(data: any): LinkExternalLoginResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new LinkExternalLoginResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["success"] = this.success;
+        data["providerAlreadyLinkedToAnotherUser"] = this.providerAlreadyLinkedToAnotherUser;
+        data["canMerge"] = this.canMerge;
+        data["existingUserEmail"] = this.existingUserEmail;
+        return data;
+    }
+}
+
+export interface ILinkExternalLoginResult {
+    success: boolean;
+    providerAlreadyLinkedToAnotherUser: boolean;
+    canMerge: boolean;
+    existingUserEmail: string | undefined;
+}
+
 export class LinkToUserInput implements ILinkToUserInput {
     tenancyName!: string | undefined;
     usernameOrEmailAddress!: string;
@@ -24108,6 +25432,50 @@ export interface IListResultDtoOfGetAllSubscriptionsOutput {
     items: GetAllSubscriptionsOutput[] | undefined;
 }
 
+export class ListResultDtoOfHealthCheckItemDto implements IListResultDtoOfHealthCheckItemDto {
+    items!: HealthCheckItemDto[] | undefined;
+
+    constructor(data?: IListResultDtoOfHealthCheckItemDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            if (Array.isArray(_data["items"])) {
+                this.items = [] as any;
+                for (let item of _data["items"])
+                    this.items!.push(HealthCheckItemDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): ListResultDtoOfHealthCheckItemDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new ListResultDtoOfHealthCheckItemDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item ? item.toJSON() : undefined as any);
+        }
+        return data;
+    }
+}
+
+export interface IListResultDtoOfHealthCheckItemDto {
+    items: HealthCheckItemDto[] | undefined;
+}
+
 export class ListResultDtoOfLinkedUserDto implements IListResultDtoOfLinkedUserDto {
     items!: LinkedUserDto[] | undefined;
 
@@ -24326,6 +25694,50 @@ export class ListResultDtoOfSubscribableEditionComboboxItemDto implements IListR
 
 export interface IListResultDtoOfSubscribableEditionComboboxItemDto {
     items: SubscribableEditionComboboxItemDto[] | undefined;
+}
+
+export class ListResultDtoOfUserSessionDto implements IListResultDtoOfUserSessionDto {
+    items!: UserSessionDto[] | undefined;
+
+    constructor(data?: IListResultDtoOfUserSessionDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            if (Array.isArray(_data["items"])) {
+                this.items = [] as any;
+                for (let item of _data["items"])
+                    this.items!.push(UserSessionDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): ListResultDtoOfUserSessionDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new ListResultDtoOfUserSessionDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item ? item.toJSON() : undefined as any);
+        }
+        return data;
+    }
+}
+
+export interface IListResultDtoOfUserSessionDto {
+    items: UserSessionDto[] | undefined;
 }
 
 export class LocalizableComboboxItemDto implements ILocalizableComboboxItemDto {
@@ -24591,6 +26003,54 @@ export interface IMemberActivity {
     closed: number;
     rate: string | undefined;
     profilePictureName: string | undefined;
+}
+
+export class MergeExternalLoginInput implements IMergeExternalLoginInput {
+    authProvider!: string;
+    providerKey!: string;
+    providerAccessCode!: string;
+    targetUserPassword!: string;
+
+    constructor(data?: IMergeExternalLoginInput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.authProvider = _data["authProvider"];
+            this.providerKey = _data["providerKey"];
+            this.providerAccessCode = _data["providerAccessCode"];
+            this.targetUserPassword = _data["targetUserPassword"];
+        }
+    }
+
+    static fromJS(data: any): MergeExternalLoginInput {
+        data = typeof data === 'object' ? data : {};
+        let result = new MergeExternalLoginInput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["authProvider"] = this.authProvider;
+        data["providerKey"] = this.providerKey;
+        data["providerAccessCode"] = this.providerAccessCode;
+        data["targetUserPassword"] = this.targetUserPassword;
+        return data;
+    }
+}
+
+export interface IMergeExternalLoginInput {
+    authProvider: string;
+    providerKey: string;
+    providerAccessCode: string;
+    targetUserPassword: string;
 }
 
 export class MicrosoftExternalLoginProviderSettings implements IMicrosoftExternalLoginProviderSettings {
@@ -24883,6 +26343,54 @@ export class NotificationData implements INotificationData {
 export interface INotificationData {
     type: string | undefined;
     properties: { [key: string]: any; } | undefined;
+}
+
+export class NotificationDetailDto implements INotificationDetailDto {
+    title!: string | undefined;
+    message!: string | undefined;
+    severity!: NotificationSeverity;
+    creationTime!: DateTime;
+
+    constructor(data?: INotificationDetailDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.title = _data["title"];
+            this.message = _data["message"];
+            this.severity = _data["severity"];
+            this.creationTime = _data["creationTime"] ? DateTime.fromISO(_data["creationTime"].toString()) : undefined as any;
+        }
+    }
+
+    static fromJS(data: any): NotificationDetailDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new NotificationDetailDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["title"] = this.title;
+        data["message"] = this.message;
+        data["severity"] = this.severity;
+        data["creationTime"] = this.creationTime ? this.creationTime.toString() : undefined as any;
+        return data;
+    }
+}
+
+export interface INotificationDetailDto {
+    title: string | undefined;
+    message: string | undefined;
+    severity: NotificationSeverity;
+    creationTime: DateTime;
 }
 
 export enum NotificationSeverity {
@@ -25881,6 +27389,54 @@ export interface IPagedResultDtoOfOrganizationUnitUserListDto {
     totalCount: number;
 }
 
+export class PagedResultDtoOfRateLimitPolicyDto implements IPagedResultDtoOfRateLimitPolicyDto {
+    items!: RateLimitPolicyDto[] | undefined;
+    totalCount!: number;
+
+    constructor(data?: IPagedResultDtoOfRateLimitPolicyDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            if (Array.isArray(_data["items"])) {
+                this.items = [] as any;
+                for (let item of _data["items"])
+                    this.items!.push(RateLimitPolicyDto.fromJS(item));
+            }
+            this.totalCount = _data["totalCount"];
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfRateLimitPolicyDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfRateLimitPolicyDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        if (Array.isArray(this.items)) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item ? item.toJSON() : undefined as any);
+        }
+        data["totalCount"] = this.totalCount;
+        return data;
+    }
+}
+
+export interface IPagedResultDtoOfRateLimitPolicyDto {
+    items: RateLimitPolicyDto[] | undefined;
+    totalCount: number;
+}
+
 export class PagedResultDtoOfSubscriptionPaymentListDto implements IPagedResultDtoOfSubscriptionPaymentListDto {
     items!: SubscriptionPaymentListDto[] | undefined;
     totalCount!: number;
@@ -26491,6 +28047,111 @@ export interface IQrLoginAuthenticateModel {
     sessionId: string | undefined;
 }
 
+export enum RateLimitAlgorithm {
+    FixedWindow = 0,
+    SlidingWindow = 1,
+    TokenBucket = 2,
+    Concurrency = 3,
+}
+
+export enum RateLimitPartitionType {
+    ByClientIp = 0,
+    ByUser = 1,
+    ByApiKey = 2,
+}
+
+export class RateLimitPolicyDto implements IRateLimitPolicyDto {
+    id!: number;
+    name!: string | undefined;
+    isEnabled!: boolean;
+    algorithm!: RateLimitAlgorithm;
+    partitionType!: RateLimitPartitionType;
+    isGlobal!: boolean;
+    endpointPattern!: string | undefined;
+    permitLimit!: number;
+    windowInSeconds!: number;
+    queueLimit!: number;
+    segmentsPerWindow!: number;
+    tokensPerPeriod!: number;
+    replenishmentPeriodInSeconds!: number;
+    httpStatusCode!: number;
+    customMessage!: string | undefined;
+
+    constructor(data?: IRateLimitPolicyDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.name = _data["name"];
+            this.isEnabled = _data["isEnabled"];
+            this.algorithm = _data["algorithm"];
+            this.partitionType = _data["partitionType"];
+            this.isGlobal = _data["isGlobal"];
+            this.endpointPattern = _data["endpointPattern"];
+            this.permitLimit = _data["permitLimit"];
+            this.windowInSeconds = _data["windowInSeconds"];
+            this.queueLimit = _data["queueLimit"];
+            this.segmentsPerWindow = _data["segmentsPerWindow"];
+            this.tokensPerPeriod = _data["tokensPerPeriod"];
+            this.replenishmentPeriodInSeconds = _data["replenishmentPeriodInSeconds"];
+            this.httpStatusCode = _data["httpStatusCode"];
+            this.customMessage = _data["customMessage"];
+        }
+    }
+
+    static fromJS(data: any): RateLimitPolicyDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new RateLimitPolicyDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["name"] = this.name;
+        data["isEnabled"] = this.isEnabled;
+        data["algorithm"] = this.algorithm;
+        data["partitionType"] = this.partitionType;
+        data["isGlobal"] = this.isGlobal;
+        data["endpointPattern"] = this.endpointPattern;
+        data["permitLimit"] = this.permitLimit;
+        data["windowInSeconds"] = this.windowInSeconds;
+        data["queueLimit"] = this.queueLimit;
+        data["segmentsPerWindow"] = this.segmentsPerWindow;
+        data["tokensPerPeriod"] = this.tokensPerPeriod;
+        data["replenishmentPeriodInSeconds"] = this.replenishmentPeriodInSeconds;
+        data["httpStatusCode"] = this.httpStatusCode;
+        data["customMessage"] = this.customMessage;
+        return data;
+    }
+}
+
+export interface IRateLimitPolicyDto {
+    id: number;
+    name: string | undefined;
+    isEnabled: boolean;
+    algorithm: RateLimitAlgorithm;
+    partitionType: RateLimitPartitionType;
+    isGlobal: boolean;
+    endpointPattern: string | undefined;
+    permitLimit: number;
+    windowInSeconds: number;
+    queueLimit: number;
+    segmentsPerWindow: number;
+    tokensPerPeriod: number;
+    replenishmentPeriodInSeconds: number;
+    httpStatusCode: number;
+    customMessage: string | undefined;
+}
+
 export class RecentTenant implements IRecentTenant {
     id!: number;
     name!: string | undefined;
@@ -26930,10 +28591,7 @@ export interface IRenamePageInput {
 export class ResetPasswordInput implements IResetPasswordInput {
     userId!: number;
     resetCode!: string | undefined;
-    expireDate!: DateTime;
     password!: string | undefined;
-    returnUrl!: string | undefined;
-    singleSignIn!: string | undefined;
     c!: string | undefined;
 
     constructor(data?: IResetPasswordInput) {
@@ -26949,10 +28607,7 @@ export class ResetPasswordInput implements IResetPasswordInput {
         if (_data) {
             this.userId = _data["userId"];
             this.resetCode = _data["resetCode"];
-            this.expireDate = _data["expireDate"] ? DateTime.fromISO(_data["expireDate"].toString()) : undefined as any;
             this.password = _data["password"];
-            this.returnUrl = _data["returnUrl"];
-            this.singleSignIn = _data["singleSignIn"];
             this.c = _data["c"];
         }
     }
@@ -26968,10 +28623,7 @@ export class ResetPasswordInput implements IResetPasswordInput {
         data = typeof data === 'object' ? data : {};
         data["userId"] = this.userId;
         data["resetCode"] = this.resetCode;
-        data["expireDate"] = this.expireDate ? this.expireDate.toString() : undefined as any;
         data["password"] = this.password;
-        data["returnUrl"] = this.returnUrl;
-        data["singleSignIn"] = this.singleSignIn;
         data["c"] = this.c;
         return data;
     }
@@ -26980,10 +28632,7 @@ export class ResetPasswordInput implements IResetPasswordInput {
 export interface IResetPasswordInput {
     userId: number;
     resetCode: string | undefined;
-    expireDate: DateTime;
     password: string | undefined;
-    returnUrl: string | undefined;
-    singleSignIn: string | undefined;
     c: string | undefined;
 }
 
@@ -27321,6 +28970,7 @@ export class SecuritySettingsEditDto implements ISecuritySettingsEditDto {
     userLockOut!: UserLockOutSettingsEditDto;
     twoFactorLogin!: TwoFactorLoginSettingsEditDto;
     userPasswordSettings!: UserPasswordSettingsEditDto;
+    sessionManagement!: SessionManagementSettingsEditDto;
 
     constructor(data?: ISecuritySettingsEditDto) {
         if (data) {
@@ -27340,6 +28990,7 @@ export class SecuritySettingsEditDto implements ISecuritySettingsEditDto {
             this.userLockOut = _data["userLockOut"] ? UserLockOutSettingsEditDto.fromJS(_data["userLockOut"]) : undefined as any;
             this.twoFactorLogin = _data["twoFactorLogin"] ? TwoFactorLoginSettingsEditDto.fromJS(_data["twoFactorLogin"]) : undefined as any;
             this.userPasswordSettings = _data["userPasswordSettings"] ? UserPasswordSettingsEditDto.fromJS(_data["userPasswordSettings"]) : undefined as any;
+            this.sessionManagement = _data["sessionManagement"] ? SessionManagementSettingsEditDto.fromJS(_data["sessionManagement"]) : undefined as any;
         }
     }
 
@@ -27359,6 +29010,7 @@ export class SecuritySettingsEditDto implements ISecuritySettingsEditDto {
         data["userLockOut"] = this.userLockOut ? this.userLockOut.toJSON() : undefined as any;
         data["twoFactorLogin"] = this.twoFactorLogin ? this.twoFactorLogin.toJSON() : undefined as any;
         data["userPasswordSettings"] = this.userPasswordSettings ? this.userPasswordSettings.toJSON() : undefined as any;
+        data["sessionManagement"] = this.sessionManagement ? this.sessionManagement.toJSON() : undefined as any;
         return data;
     }
 }
@@ -27371,6 +29023,7 @@ export interface ISecuritySettingsEditDto {
     userLockOut: UserLockOutSettingsEditDto;
     twoFactorLogin: TwoFactorLoginSettingsEditDto;
     userPasswordSettings: UserPasswordSettingsEditDto;
+    sessionManagement: SessionManagementSettingsEditDto;
 }
 
 export class SendAndGetDateWithTextInput implements ISendAndGetDateWithTextInput {
@@ -27639,6 +29292,58 @@ export class SendVerificationSmsInputDto implements ISendVerificationSmsInputDto
 
 export interface ISendVerificationSmsInputDto {
     phoneNumber: string | undefined;
+}
+
+export class SessionManagementSettingsEditDto implements ISessionManagementSettingsEditDto {
+    isEnabled!: boolean;
+    isSessionFingerprintValidationEnabled!: boolean;
+    sessionFingerprintValidationPolicy!: string | undefined;
+    sessionAbsoluteTimeoutMinutes!: number;
+    isSessionRevocationEnabled!: boolean;
+
+    constructor(data?: ISessionManagementSettingsEditDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.isEnabled = _data["isEnabled"];
+            this.isSessionFingerprintValidationEnabled = _data["isSessionFingerprintValidationEnabled"];
+            this.sessionFingerprintValidationPolicy = _data["sessionFingerprintValidationPolicy"];
+            this.sessionAbsoluteTimeoutMinutes = _data["sessionAbsoluteTimeoutMinutes"];
+            this.isSessionRevocationEnabled = _data["isSessionRevocationEnabled"];
+        }
+    }
+
+    static fromJS(data: any): SessionManagementSettingsEditDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new SessionManagementSettingsEditDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["isEnabled"] = this.isEnabled;
+        data["isSessionFingerprintValidationEnabled"] = this.isSessionFingerprintValidationEnabled;
+        data["sessionFingerprintValidationPolicy"] = this.sessionFingerprintValidationPolicy;
+        data["sessionAbsoluteTimeoutMinutes"] = this.sessionAbsoluteTimeoutMinutes;
+        data["isSessionRevocationEnabled"] = this.isSessionRevocationEnabled;
+        return data;
+    }
+}
+
+export interface ISessionManagementSettingsEditDto {
+    isEnabled: boolean;
+    isSessionFingerprintValidationEnabled: boolean;
+    sessionFingerprintValidationPolicy: string | undefined;
+    sessionAbsoluteTimeoutMinutes: number;
+    isSessionRevocationEnabled: boolean;
 }
 
 export class SessionTimeOutSettingsEditDto implements ISessionTimeOutSettingsEditDto {
@@ -29991,6 +31696,82 @@ export interface IUnblockUserInput {
     tenantId: number | undefined;
 }
 
+export class UnlinkExternalLoginInput implements IUnlinkExternalLoginInput {
+    authProvider!: string;
+
+    constructor(data?: IUnlinkExternalLoginInput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.authProvider = _data["authProvider"];
+        }
+    }
+
+    static fromJS(data: any): UnlinkExternalLoginInput {
+        data = typeof data === 'object' ? data : {};
+        let result = new UnlinkExternalLoginInput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["authProvider"] = this.authProvider;
+        return data;
+    }
+}
+
+export interface IUnlinkExternalLoginInput {
+    authProvider: string;
+}
+
+export class UnlinkExternalLoginResult implements IUnlinkExternalLoginResult {
+    success!: boolean;
+    requiresPasswordSetup!: boolean;
+
+    constructor(data?: IUnlinkExternalLoginResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.success = _data["success"];
+            this.requiresPasswordSetup = _data["requiresPasswordSetup"];
+        }
+    }
+
+    static fromJS(data: any): UnlinkExternalLoginResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new UnlinkExternalLoginResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["success"] = this.success;
+        data["requiresPasswordSetup"] = this.requiresPasswordSetup;
+        return data;
+    }
+}
+
+export interface IUnlinkExternalLoginResult {
+    success: boolean;
+    requiresPasswordSetup: boolean;
+}
+
 export class UnlinkUserInput implements IUnlinkUserInput {
     tenantId!: number | undefined;
     userId!: number;
@@ -31144,6 +32925,62 @@ export interface IUserRoleDto {
     roleDisplayName: string | undefined;
     isAssigned: boolean;
     inheritedFromOrganizationUnit: boolean;
+}
+
+export class UserSessionDto implements IUserSessionDto {
+    id!: number;
+    ipAddress!: string | undefined;
+    deviceInfo!: string | undefined;
+    signInTime!: DateTime;
+    lastActivityTime!: DateTime;
+    isCurrent!: boolean;
+
+    constructor(data?: IUserSessionDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.ipAddress = _data["ipAddress"];
+            this.deviceInfo = _data["deviceInfo"];
+            this.signInTime = _data["signInTime"] ? DateTime.fromISO(_data["signInTime"].toString()) : undefined as any;
+            this.lastActivityTime = _data["lastActivityTime"] ? DateTime.fromISO(_data["lastActivityTime"].toString()) : undefined as any;
+            this.isCurrent = _data["isCurrent"];
+        }
+    }
+
+    static fromJS(data: any): UserSessionDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new UserSessionDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["ipAddress"] = this.ipAddress;
+        data["deviceInfo"] = this.deviceInfo;
+        data["signInTime"] = this.signInTime ? this.signInTime.toString() : undefined as any;
+        data["lastActivityTime"] = this.lastActivityTime ? this.lastActivityTime.toString() : undefined as any;
+        data["isCurrent"] = this.isCurrent;
+        return data;
+    }
+}
+
+export interface IUserSessionDto {
+    id: number;
+    ipAddress: string | undefined;
+    deviceInfo: string | undefined;
+    signInTime: DateTime;
+    lastActivityTime: DateTime;
+    isCurrent: boolean;
 }
 
 export class UsersToOrganizationUnitInput implements IUsersToOrganizationUnitInput {

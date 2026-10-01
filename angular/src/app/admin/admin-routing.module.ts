@@ -55,6 +55,12 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
                         data: { permission: 'Pages.Administration.Languages.ChangeTexts' },
                     },
                     {
+                        path: 'rate-limiting',
+                        loadComponent: () =>
+                            import('./rate-limiting/rate-limiting.component').then((m) => m.RateLimitingComponent),
+                        data: { permission: 'Pages.Administration.RateLimiting' },
+                    },
+                    {
                         path: 'tenants',
                         loadChildren: () => import('./tenants/tenants.module').then((m) => m.TenantsModule),
                         data: { permission: 'Pages.Tenants' },

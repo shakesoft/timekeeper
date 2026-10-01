@@ -17,6 +17,7 @@ import { ZeroTemplateHttpInterceptor } from './zero-template-http-interceptor';
         ApiServiceProxies.HostSettingsServiceProxy,
         ApiServiceProxies.InstallServiceProxy,
         ApiServiceProxies.LanguageServiceProxy,
+        ApiServiceProxies.RateLimitPolicyServiceProxy,
         ApiServiceProxies.NotificationServiceProxy,
         ApiServiceProxies.OrganizationUnitServiceProxy,
         ApiServiceProxies.PermissionServiceProxy,

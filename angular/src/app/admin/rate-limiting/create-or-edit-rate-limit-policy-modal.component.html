@@ -1,0 +1,269 @@
+<div
+    appBsModal
+    #createOrEditModal="bs-modal"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="createOrEditModal"
+    aria-hidden="true"
+    [config]="{ backdrop: 'static', keyboard: !saving }">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            @if (active) {
+                <form #editForm="ngForm" novalidate (ngSubmit)="save()">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            @if (policy.id) {
+                                <span>{{ 'EditRateLimitPolicy' | localize }}: {{ policy.name }}</span>
+                            } @else {
+                                <span>{{ 'CreateNewRateLimitPolicy' | localize }}</span>
+                            }
+                        </h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            (click)="close()"
+                            [attr.aria-label]="l('Close')"
+                            [disabled]="saving"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-5">
+                            <label for="PolicyName" class="form-label required">{{ 'PolicyName' | localize }}</label>
+                            <input
+                                id="PolicyName"
+                                #nameInput="ngModel"
+                                class="form-control"
+                                type="text"
+                                name="name"
+                                [(ngModel)]="policy.name"
+                                required
+                                maxlength="128" />
+                            <validation-messages [formCtrl]="nameInput"></validation-messages>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="form-check form-switch">
+                                <input
+                                    id="PolicyIsEnabled"
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    name="isEnabled"
+                                    [(ngModel)]="policy.isEnabled" />
+                                <label class="form-check-label" for="PolicyIsEnabled">
+                                    {{ 'IsEnabled' | localize }}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="PolicyAlgorithm" class="form-label required">
+                                {{ 'Algorithm' | localize }}
+                            </label>
+                            <select
+                                id="PolicyAlgorithm"
+                                class="form-select"
+                                name="algorithm"
+                                [(ngModel)]="policy.algorithm"
+                                required>
+                                @for (item of algorithms; track item.value) {
+                                    <option [ngValue]="item.value">{{ item.displayText | localize }}</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="PolicyPartitionType" class="form-label required">
+                                {{ 'PartitionType' | localize }}
+                            </label>
+                            <select
+                                id="PolicyPartitionType"
+                                class="form-select"
+                                name="partitionType"
+                                [(ngModel)]="policy.partitionType"
+                                required>
+                                @for (item of partitionTypes; track item.value) {
+                                    <option [ngValue]="item.value">{{ item.displayText | localize }}</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="form-check form-switch">
+                                <input
+                                    id="PolicyIsGlobal"
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    name="isGlobal"
+                                    [(ngModel)]="policy.isGlobal" />
+                                <label class="form-check-label" for="PolicyIsGlobal">
+                                    {{ 'IsGlobal' | localize }}
+                                </label>
+                            </div>
+                        </div>
+
+                        @if (!policy.isGlobal) {
+                            <div class="mb-5">
+                                <label for="PolicyEndpointPattern" class="form-label">
+                                    {{ 'EndpointPattern' | localize }}
+                                </label>
+                                <input
+                                    id="PolicyEndpointPattern"
+                                    class="form-control mb-2"
+                                    type="text"
+                                    name="endpointPattern"
+                                    [(ngModel)]="policy.endpointPattern"
+                                    maxlength="256" />
+                                <small class="form-text text-muted">{{ 'EndpointPatternHelpText' | localize }}</small>
+                            </div>
+                        }
+
+                        <div class="mb-5">
+                            <label for="PolicyPermitLimit" class="form-label required">
+                                {{ 'PermitLimit' | localize }}
+                            </label>
+                            <input
+                                id="PolicyPermitLimit"
+                                #permitLimitInput="ngModel"
+                                class="form-control"
+                                type="number"
+                                name="permitLimit"
+                                [(ngModel)]="policy.permitLimit"
+                                required
+                                min="1" />
+                            <validation-messages [formCtrl]="permitLimitInput"></validation-messages>
+                        </div>
+
+                        @if (showWindow) {
+                            <div class="mb-5">
+                                <label for="PolicyWindowInSeconds" class="form-label required">
+                                    {{ 'WindowInSeconds' | localize }}
+                                </label>
+                                <input
+                                    id="PolicyWindowInSeconds"
+                                    #windowInput="ngModel"
+                                    class="form-control"
+                                    type="number"
+                                    name="windowInSeconds"
+                                    [(ngModel)]="policy.windowInSeconds"
+                                    required
+                                    min="1" />
+                                <validation-messages [formCtrl]="windowInput"></validation-messages>
+                            </div>
+                        }
+
+                        @if (showSlidingWindow) {
+                            <div class="mb-5">
+                                <label for="PolicySegmentsPerWindow" class="form-label required">
+                                    {{ 'SegmentsPerWindow' | localize }}
+                                </label>
+                                <input
+                                    id="PolicySegmentsPerWindow"
+                                    #segmentsInput="ngModel"
+                                    class="form-control"
+                                    type="number"
+                                    name="segmentsPerWindow"
+                                    [(ngModel)]="policy.segmentsPerWindow"
+                                    required
+                                    min="1" />
+                                <validation-messages [formCtrl]="segmentsInput"></validation-messages>
+                            </div>
+                        }
+
+                        @if (showTokenBucket) {
+                            <div class="mb-5">
+                                <label for="PolicyTokensPerPeriod" class="form-label required">
+                                    {{ 'TokensPerPeriod' | localize }}
+                                </label>
+                                <input
+                                    id="PolicyTokensPerPeriod"
+                                    #tokensInput="ngModel"
+                                    class="form-control"
+                                    type="number"
+                                    name="tokensPerPeriod"
+                                    [(ngModel)]="policy.tokensPerPeriod"
+                                    required
+                                    min="1" />
+                                <validation-messages [formCtrl]="tokensInput"></validation-messages>
+                            </div>
+                            <div class="mb-5">
+                                <label for="PolicyReplenishmentPeriod" class="form-label required">
+                                    {{ 'ReplenishmentPeriodInSeconds' | localize }}
+                                </label>
+                                <input
+                                    id="PolicyReplenishmentPeriod"
+                                    #replenishmentInput="ngModel"
+                                    class="form-control"
+                                    type="number"
+                                    name="replenishmentPeriodInSeconds"
+                                    [(ngModel)]="policy.replenishmentPeriodInSeconds"
+                                    required
+                                    min="1" />
+                                <validation-messages [formCtrl]="replenishmentInput"></validation-messages>
+                            </div>
+                        }
+
+                        <div class="mb-5">
+                            <label for="PolicyQueueLimit" class="form-label">{{ 'QueueLimit' | localize }}</label>
+                            <input
+                                id="PolicyQueueLimit"
+                                class="form-control"
+                                type="number"
+                                #queueLimitInput="ngModel"
+                                name="queueLimit"
+                                [(ngModel)]="policy.queueLimit"
+                                min="0" />
+                            <validation-messages [formCtrl]="queueLimitInput"></validation-messages>
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="PolicyHttpStatusCode" class="form-label">
+                                {{ 'HttpStatusCode' | localize }}
+                            </label>
+                            <input
+                                id="PolicyHttpStatusCode"
+                                class="form-control"
+                                type="number"
+                                #httpStatusCodeInput="ngModel"
+                                name="httpStatusCode"
+                                [(ngModel)]="policy.httpStatusCode"
+                                min="400"
+                                max="599" />
+                            <validation-messages [formCtrl]="httpStatusCodeInput"></validation-messages>
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="PolicyCustomMessage" class="form-label">
+                                {{ 'CustomMessage' | localize }}
+                            </label>
+                            <textarea
+                                id="PolicyCustomMessage"
+                                class="form-control"
+                                name="customMessage"
+                                [(ngModel)]="policy.customMessage"
+                                maxlength="512"
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            [disabled]="saving"
+                            type="button"
+                            class="btn btn-light-primary fw-bold"
+                            (click)="close()">
+                            {{ 'Cancel' | localize }}
+                        </button>
+                        <button
+                            type="submit"
+                            class="btn btn-primary fw-bold"
+                            [disabled]="!editForm.form.valid"
+                            [buttonBusy]="saving"
+                            [busyText]="l('SavingWithThreeDot')">
+                            <i class="fa fa-save"></i>
+                            <span>{{ 'Save' | localize }}</span>
+                        </button>
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>

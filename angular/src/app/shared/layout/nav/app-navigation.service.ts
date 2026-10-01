@@ -109,6 +109,12 @@ export class AppNavigationService {
                         ]
                     ),
                     new AppMenuItem(
+                        'RateLimiting',
+                        'Pages.Administration.RateLimiting',
+                        'flaticon-security',
+                        '/app/admin/rate-limiting'
+                    ),
+                    new AppMenuItem(
                         'Settings',
                         'Pages.Administration.Host.Settings',
                         'flaticon-settings',
